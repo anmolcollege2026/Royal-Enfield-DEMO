@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Royal Enfield • Pure Motorcycling — Bullet & Mountain Expedition</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Manrope:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  
+  <!-- Tailwind CSS CDN & Design System Tokens -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "outline-variant": "#4d4635",
+            "surface-container-highest": "#353437",
+            "error-container": "#93000a",
+            "on-surface-variant": "#d0c5af",
+            "tertiary-fixed": "#e2e1ec",
+            "on-tertiary-fixed": "#1a1b23",
+            "on-primary-fixed": "#241a00",
+            "tertiary": "#cecdd8",
+            "inverse-on-surface": "#313032",
+            "surface-container": "#201f21",
+            "primary-container": "#d4af37",
+            "inverse-primary": "#735c00",
+            "on-primary": "#3c2f00",
+            "secondary-fixed": "#ffdea5",
+            "on-error-container": "#ffdad6",
+            "primary-fixed": "#ffe088",
+            "on-tertiary-container": "#43444d",
+            "secondary-fixed-dim": "#e9c176",
+            "surface-bright": "#39393b",
+            "surface-dim": "#131315",
+            "secondary": "#e9c176",
+            "on-background": "#e5e1e4",
+            "tertiary-container": "#b2b2bc",
+            "error": "#ffb4ab",
+            "primary-fixed-dim": "#e9c349",
+            "on-secondary-fixed-variant": "#5d4201",
+            "on-secondary-container": "#dab36a",
+            "surface-container-lowest": "#0e0e10",
+            "on-primary-container": "#554300",
+            "tertiary-fixed-dim": "#c6c5d0",
+            "on-secondary": "#412d00",
+            "primary": "#f2ca50",
+            "surface-variant": "#353437",
+            "secondary-container": "#604403",
+            "outline": "#99907c",
+            "inverse-surface": "#e5e1e4",
+            "on-error": "#690005",
+            "on-tertiary-fixed-variant": "#45464f",
+            "surface-tint": "#e9c349",
+            "surface-container-high": "#2a2a2c",
+            "surface-container-low": "#1b1b1d",
+            "on-tertiary": "#2f3038",
+            "background": "#131315",
+            "on-secondary-fixed": "#261900",
+            "on-primary-fixed-variant": "#574500",
+            "surface": "#131315",
+            "on-surface": "#e5e1e4"
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px"
+          },
+          spacing: {
+            margin: "2rem",
+            "space-lg": "2.25rem",
+            gutter: "1.5rem",
+            "space-sm": "0.75rem",
+            "space-xs": "0.375rem",
+            "space-md": "1.25rem",
+            "space-xl": "3.5rem"
+          },
+          fontFamily: {
+            "headline-sm": ["Bodoni Moda"],
+            "title-md": ["Manrope"],
+            "label-caps": ["Space Grotesk"],
+            display: ["Bodoni Moda"],
+            "body-md": ["Manrope"],
+            "title-lg": ["Manrope"],
+            "display-mobile": ["Bodoni Moda"],
+            "body-sm": ["Manrope"],
+            "label-sm": ["Space Grotesk"],
+            "label-md": ["Space Grotesk"],
+            "headline-lg-mobile": ["Bodoni Moda"],
+            "headline-md": ["Bodoni Moda"],
+            "body-lg": ["Manrope"],
+            "headline-lg": ["Bodoni Moda"]
+          }
+        }
+      }
+    };
+  </script>
+  
+  <style>
+    @layer base {
+      html, body {
+        margin: 0;
+        padding: 0;
+        background-color: #131315;
+      }
+      body {
+        overscroll-behavior: none;
+      }
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0e0e10;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #f2ca50;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen">
+
+  <main class="w-full bg-background">
+    <div class="flex flex-col w-full">
+
+      <!-- ====================================================================
+           1. HERO SCROLL ANIMATION SECTION (Replaces old hero & navigation)
+           ==================================================================== -->
+      <section id="hero-scroll-section" class="relative w-full" style="height: 480vh;">
+        <!-- Sticky Viewport Canvas Stage -->
+        <div class="sticky top-0 left-0 w-full h-screen overflow-hidden bg-[#08090c] flex items-center justify-center">
+          <!-- 300-Frame Canvas Engine -->
+          <canvas id="hero-canvas" class="w-full h-full object-cover block"></canvas>
+
+          <!-- Seamless Bottom Shadow & Gradient transitioning into Heritage section -->
+          <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-[#131315]"></div>
+
+          <!-- Top Brand Badge (Floating subtly) -->
+          <div class="pointer-events-none absolute top-8 left-8 flex items-center gap-3">
+            <div class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></div>
+            <span class="font-label-caps text-label-caps uppercase text-primary tracking-[0.25em] drop-shadow-md">
+              ROYAL ENFIELD · MOUNTAIN RUN
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           2. HERITAGE & STORYTELLING SECTION
+           ==================================================================== -->
+      <section class="w-full bg-surface-dim py-space-xl">
+        <div class="max-w-[1440px] mx-auto px-gutter">
+          <!-- Section Intro Header -->
+          <div class="flex flex-col md:flex-row md:items-end justify-between mb-space-xl gap-space-md">
+            <div>
+              <div class="flex items-center gap-2 mb-space-xs">
+                <span class="w-8 h-px bg-primary"></span>
+                <span class="font-label-caps text-label-caps uppercase text-primary tracking-[0.2em]">The Unbroken Lineage</span>
+              </div>
+              <h2 class="font-headline-lg text-headline-md md:text-headline-lg text-on-surface">
+                A Century of Pure Motorcycling
+              </h2>
+            </div>
+            <p class="font-body-md text-body-md text-outline max-w-md">
+              Born in the legendary forge of Redditch, England, and refined on Indian soil. The Bullet has witnessed world history from the saddle, untouched by ephemeral trends.
+            </p>
+          </div>
+
+          <!-- Asymmetric Editorial Grid -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-center">
+            <!-- Visual Column: Archival & Detail Craft -->
+            <div class="lg:col-span-5 flex flex-col gap-space-md">
+              <div class="relative rounded-xl overflow-hidden shadow-2xl bg-surface-container group">
+                <img class="w-full h-80 object-cover transform transition-transform duration-700 group-hover:scale-105" alt="Master craftsman applying gold pinstripes by hand onto a motorcycle tank" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCowoKUgq-gcD3ToWuoUCl9dLbKfPuAeqQ6QEwb1tb1hLkzw7a8MNOFzNSl9ovtfCtwxbScsdbejhtWsDNewZoAdiMlRy95cXDuLtTw6uTt7oJyk_VjMwWZP622ypyMAcCNCVpc74nDDHywGzTytAGfr8KOd0VjevdPa14UzPRf1gZXqtVBKg5kU2PxJ_7l719QyimGtKjkA-JszNR8gC8iS5-vlaijA4QznQrFeLVh84hF4hoLtBtcsg"/>
+                <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent opacity-90"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-space-md">
+                  <span class="font-label-caps text-label-caps text-primary uppercase tracking-widest">Madras Handcraft</span>
+                  <h3 class="font-title-lg text-title-lg text-on-surface mt-1">Two Strokes. Forty Years of Muscle Memory.</h3>
+                  <p class="font-body-sm text-body-sm text-outline mt-1">Each tank is pinstriped without stencils or tape — a human signature baked into metal.</p>
+                </div>
+              </div>
+
+              <!-- Historical Quote Panel -->
+              <div class="bg-surface-container-low rounded-xl p-space-md shadow-md border border-white/5">
+                <span class="font-headline-lg text-headline-lg text-primary/30 leading-none">“</span>
+                <p class="font-headline-sm text-title-lg italic text-on-surface -mt-3">
+                  Pure motorcycling isn't about speed or noise. It is about soul, gravity, and the timeless presence of metal moving forward.
+                </p>
+                <div class="flex items-center gap-space-sm mt-space-md">
+                  <div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-xs">RE</div>
+                  <span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Royal Enfield Heritage Archives · Chennai</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Timeline Steps Column -->
+            <div class="lg:col-span-7 flex flex-col gap-space-lg lg:pl-space-md">
+              <!-- Milestone 1932 -->
+              <div class="flex gap-space-md group">
+                <div class="flex flex-col items-center">
+                  <span class="font-headline-lg text-headline-sm md:text-headline-md text-primary font-bold">1932</span>
+                  <div class="w-0.5 flex-1 bg-surface-container-highest my-space-xs group-hover:bg-primary transition-colors"></div>
+                </div>
+                <div class="bg-surface-container p-space-md rounded-xl flex-1 shadow-sm border border-white/5">
+                  <div class="flex items-center justify-between mb-space-xs">
+                    <span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">The Birth of an Icon</span>
+                    <span class="font-label-sm text-label-sm text-outline">Redditch, UK</span>
+                  </div>
+                  <h4 class="font-title-lg text-title-lg text-on-surface mb-space-xs">The Sloper Engine &amp; Swingarm Revolution</h4>
+                  <p class="font-body-md text-body-md text-on-surface-variant">
+                    Unveiled at the Olympia Motorcycle Show in London. Bullet introduced the pioneering rear swingarm suspension system that forever transformed global motorcycle frame design.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Milestone 1955 -->
+              <div class="flex gap-space-md group">
+                <div class="flex flex-col items-center">
+                  <span class="font-headline-lg text-headline-sm md:text-headline-md text-secondary font-bold">1955</span>
+                  <div class="w-0.5 flex-1 bg-surface-container-highest my-space-xs group-hover:bg-secondary transition-colors"></div>
+                </div>
+                <div class="bg-surface-container p-space-md rounded-xl flex-1 shadow-sm border border-white/5">
+                  <div class="flex items-center justify-between mb-space-xs">
+                    <span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Guardian of the Borders</span>
+                    <span class="font-label-sm text-label-sm text-outline">Madras, India</span>
+                  </div>
+                  <h4 class="font-title-lg text-title-lg text-on-surface mb-space-xs">Adopted by the Indian Armed Forces</h4>
+                  <p class="font-body-md text-body-md text-on-surface-variant">
+                    The Indian Army commissioned 800 Bullet 350s for rugged border patrols across the Himalayas and Thar Desert. An enduring marriage of machine and nation was sealed.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Milestone 2024+ -->
+              <div class="flex gap-space-md group">
+                <div class="flex flex-col items-center">
+                  <span class="font-headline-lg text-headline-sm md:text-headline-md text-on-surface font-bold">2024</span>
+                  <div class="w-2.5 h-2.5 rounded-full bg-primary mt-space-xs"></div>
+                </div>
+                <div class="bg-surface-container-high p-space-md rounded-xl flex-1 shadow-md border border-white/5">
+                  <div class="flex items-center justify-between mb-space-xs">
+                    <span class="font-label-caps text-label-caps text-primary uppercase tracking-widest">The Modern Era</span>
+                    <span class="font-label-sm text-label-sm text-primary">Global Lineage</span>
+                  </div>
+                  <h4 class="font-title-lg text-title-lg text-on-surface mb-space-xs">The J-Series Engine Reimagination</h4>
+                  <p class="font-body-md text-body-md text-on-surface-variant">
+                    Engineered with dual-channel ABS, refined counter-balanced single-cylinder engineering, and signature cast-iron acoustics without legacy vibration. The thump lives forever.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           3. KEY FEATURES & SPECS GRID (INTERACTIVE CARD MATRIX)
+           ==================================================================== -->
+      <section class="w-full bg-surface-container-lowest py-space-xl">
+        <div class="max-w-[1440px] mx-auto px-gutter">
+          <!-- Section Header -->
+          <div class="text-center max-w-2xl mx-auto mb-space-xl">
+            <span class="font-label-caps text-label-caps uppercase text-primary tracking-[0.24em]">Mechanical Purity</span>
+            <h2 class="font-headline-lg text-headline-md md:text-headline-lg text-on-surface mt-1">
+              Precision Cast. Purely Mechanical.
+            </h2>
+            <p class="font-body-md text-body-md text-outline mt-space-xs">
+              Advanced modern engineering cloaked behind vintage casquette styling and unbroken silhouette architecture.
+            </p>
+          </div>
+
+          <!-- Feature Grid Bento Matrix -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+            <!-- Card 1: J-Series Engine -->
+            <div class="bg-surface-container p-space-md rounded-xl shadow-lg flex flex-col justify-between hover:bg-surface-container-high transition-colors group border border-white/5">
+              <div>
+                <div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary mb-space-md group-hover:scale-110 transition-transform">
+                  <span class="material-symbols-outlined text-[28px]">hardware</span>
+                </div>
+                <span class="font-label-caps text-label-caps uppercase text-secondary tracking-widest">Powertrain</span>
+                <h3 class="font-title-lg text-title-lg text-on-surface mt-1 mb-space-xs">J-Series 349cc Heart</h3>
+                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                  Air-oil cooled single-cylinder with integrated primary counterbalancer shaft. Delivers the signature heavy heartbeat without body-numbing vibrations.
+                </p>
+              </div>
+              <div class="mt-space-lg pt-space-sm bg-surface-container-lowest/40 rounded-lg p-space-sm">
+                <div class="flex justify-between items-baseline">
+                  <span class="font-label-sm text-label-sm text-outline">Peak Torque</span>
+                  <span class="font-label-md text-label-md text-primary">27 Nm @ 4,000 RPM</span>
+                </div>
+                <div class="flex justify-between items-baseline mt-1">
+                  <span class="font-label-sm text-label-sm text-outline">Bore x Stroke</span>
+                  <span class="font-label-md text-label-md text-on-surface">72mm x 85.8mm</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2: Styling & Ergonomics -->
+            <div class="bg-surface-container p-space-md rounded-xl shadow-lg flex flex-col justify-between hover:bg-surface-container-high transition-colors group border border-white/5">
+              <div>
+                <div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary mb-space-md group-hover:scale-110 transition-transform">
+                  <span class="material-symbols-outlined text-[28px]">airline_seat_recline_extra</span>
+                </div>
+                <span class="font-label-caps text-label-caps uppercase text-secondary tracking-widest">Ergonomics</span>
+                <h3 class="font-title-lg text-title-lg text-on-surface mt-1 mb-space-xs">Single-Piece Contour Seat</h3>
+                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                  Redesigned generous foam density bench saddle engineered for all-day touring comfort, paired with neutral footpegs and high-rise handlebars.
+                </p>
+              </div>
+              <div class="mt-space-lg pt-space-sm bg-surface-container-lowest/40 rounded-lg p-space-sm">
+                <div class="flex justify-between items-baseline">
+                  <span class="font-label-sm text-label-sm text-outline">Saddle Height</span>
+                  <span class="font-label-md text-label-md text-primary">805 mm Accessible</span>
+                </div>
+                <div class="flex justify-between items-baseline mt-1">
+                  <span class="font-label-sm text-label-sm text-outline">Fuel Tank</span>
+                  <span class="font-label-md text-label-md text-on-surface">13.0 Litres Tear Drop</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3: Modern Tech & ABS -->
+            <div class="bg-surface-container p-space-md rounded-xl shadow-lg flex flex-col justify-between hover:bg-surface-container-high transition-colors group border border-white/5">
+              <div>
+                <div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary mb-space-md group-hover:scale-110 transition-transform">
+                  <span class="material-symbols-outlined text-[28px]">speed</span>
+                </div>
+                <span class="font-label-caps text-label-caps uppercase text-secondary tracking-widest">Control &amp; Safety</span>
+                <h3 class="font-title-lg text-title-lg text-on-surface mt-1 mb-space-xs">Dual-Channel ByBre ABS</h3>
+                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                  300mm front rotor and 270mm rear disc supported by Bosch dual-channel anti-lock brakes for confident stopping grip in wet conditions.
+                </p>
+              </div>
+              <div class="mt-space-lg pt-space-sm bg-surface-container-lowest/40 rounded-lg p-space-sm">
+                <div class="flex justify-between items-baseline">
+                  <span class="font-label-sm text-label-sm text-outline">Front Disc</span>
+                  <span class="font-label-md text-label-md text-primary">300mm Twin Piston</span>
+                </div>
+                <div class="flex justify-between items-baseline mt-1">
+                  <span class="font-label-sm text-label-sm text-outline">Aux Tech</span>
+                  <span class="font-label-md text-label-md text-on-surface">USB Fast Charge Port</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4: Chassis Dynamics -->
+            <div class="bg-surface-container p-space-md rounded-xl shadow-lg flex flex-col justify-between hover:bg-surface-container-high transition-colors group border border-white/5">
+              <div>
+                <div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary mb-space-md group-hover:scale-110 transition-transform">
+                  <span class="material-symbols-outlined text-[28px]">tune</span>
+                </div>
+                <span class="font-label-caps text-label-caps uppercase text-secondary tracking-widest">Dynamics</span>
+                <h3 class="font-title-lg text-title-lg text-on-surface mt-1 mb-space-xs">Twin Downtube Spine</h3>
+                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                  Harris Performance tuned spine chassis providing unshakable cornering stability, paired with beefy 41mm telescopic front forks.
+                </p>
+              </div>
+              <div class="mt-space-lg pt-space-sm bg-surface-container-lowest/40 rounded-lg p-space-sm">
+                <div class="flex justify-between items-baseline">
+                  <span class="font-label-sm text-label-sm text-outline">Front Fork</span>
+                  <span class="font-label-md text-label-md text-primary">41mm (130mm Travel)</span>
+                </div>
+                <div class="flex justify-between items-baseline mt-1">
+                  <span class="font-label-sm text-label-sm text-outline">Rear Shock</span>
+                  <span class="font-label-md text-label-md text-on-surface">6-Step Preload Twin</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Technical Telemetry Banner -->
+          <div class="mt-space-lg bg-surface-container p-space-md rounded-xl flex flex-col lg:flex-row items-center justify-between gap-space-md shadow-lg border border-white/5">
+            <div class="flex items-center gap-space-md">
+              <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+                <span class="material-symbols-outlined">straighten</span>
+              </div>
+              <div>
+                <span class="font-title-md text-title-md text-on-surface">Full Engineering Spec Sheet Available</span>
+                <p class="font-body-sm text-body-sm text-outline">Certified homologation data, curb weights, gear ratios, and chassis schematics.</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-space-sm">
+              <a href="#test-ride" class="px-space-md py-2.5 rounded-full bg-primary text-on-primary font-label-caps text-label-caps uppercase tracking-wider hover:bg-primary-fixed-dim transition-colors inline-flex items-center gap-1.5 shadow-md">
+                <span class="material-symbols-outlined text-[16px]">two_wheeler</span>
+                <span>Experience The Machine</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           4. COLORWAYS & CUSTOMIZER INTERACTIVE PREVIEW
+           ==================================================================== -->
+      <section class="w-full bg-surface py-space-xl" id="customizer">
+        <div class="max-w-[1440px] mx-auto px-gutter">
+          <!-- Section Header -->
+          <div class="flex flex-col md:flex-row md:items-end justify-between mb-space-lg gap-space-md">
+            <div>
+              <span class="font-label-caps text-label-caps uppercase text-primary tracking-[0.24em]">The Living Canvas</span>
+              <h2 class="font-headline-lg text-headline-md md:text-headline-lg text-on-surface mt-1">
+                Choose Your Character
+              </h2>
+            </div>
+            <div class="flex items-center gap-space-xs font-label-caps text-label-caps uppercase text-outline">
+              <span>Active Selection:</span>
+              <span class="text-primary font-bold" id="active-variant-name">Standard Maroon</span>
+            </div>
+          </div>
+
+          <!-- Customizer Showcase Box -->
+          <div class="bg-surface-container-low rounded-2xl p-space-md md:p-space-lg shadow-2xl relative overflow-hidden border border-white/5">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-center">
+              <!-- Main Color Showcase Image -->
+              <div class="lg:col-span-8 flex flex-col items-center justify-center relative min-h-[380px]">
+                <img alt="Royal Enfield Bullet 350 Standard Maroon" class="w-full h-auto max-h-[460px] object-contain rounded-xl drop-shadow-[0_20px_40px_rgba(0,0,0,0.85)] transition-all duration-500" id="customizer-bike-img" src="images/bullet-standard-maroon.jpg"/>
+                
+                <div class="absolute top-2 left-2 px-space-sm py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md shadow-sm flex items-center gap-2 border border-white/5">
+                  <span class="material-symbols-outlined text-[15px] text-primary">verified</span>
+                  <span class="font-label-caps text-label-caps uppercase text-on-surface tracking-wider" id="badge-trim-label">Dual-Channel ABS Spoke Wheels</span>
+                </div>
+              </div>
+
+              <!-- Color Selector & Configuration Controls Rail -->
+              <div class="lg:col-span-4 flex flex-col justify-between bg-surface-container p-space-md rounded-xl shadow-lg border border-white/5">
+                <div>
+                  <span class="font-label-caps text-label-caps uppercase text-primary tracking-widest">Heritage Editions</span>
+                  <h3 class="font-title-lg text-title-lg text-on-surface mt-1 mb-space-md">Factory Finishes</h3>
+
+                  <div class="flex flex-col gap-space-sm" id="variant-selector-group">
+                    <!-- Option 1: Black Gold -->
+                    <button class="variant-btn w-full p-space-sm rounded-lg bg-surface-container text-left flex items-center justify-between shadow-sm transition-all hover:bg-surface-container-high border border-white/5" data-variant="black-gold" onclick="selectVariant('black-gold', 'Black Gold Edition', '24k-Inspired Gold Madras Lines on Satin Obsidian Black with premium 3D copper badging.', '$4,999', 'Premium 3D Copper Tank Badging')">
+                      <div class="flex items-center gap-space-sm">
+                        <span class="w-6 h-6 rounded-full bg-surface-container-lowest shadow-inner ring-2 ring-primary"></span>
+                        <div>
+                          <div class="font-title-md text-body-md text-on-surface">Black Gold</div>
+                          <div class="font-label-sm text-label-sm text-outline">Signature Flagship</div>
+                        </div>
+                      </div>
+                      <span class="material-symbols-outlined text-outline text-[20px] opacity-0 checkmark">check_circle</span>
+                    </button>
+
+                    <!-- Option 2: Military Red -->
+                    <button class="variant-btn w-full p-space-sm rounded-lg bg-surface-container text-left flex items-center justify-between shadow-sm transition-all hover:bg-surface-container-high border border-white/5" data-variant="military-red" onclick="selectVariant('military-red', 'Military Red', 'Post-War Service Vermilion Red with Chrome Tank Medallions.', '$4,749', 'Chrome Single-Channel ABS Trim')">
+                      <div class="flex items-center gap-space-sm">
+                        <span class="w-6 h-6 rounded-full bg-[#801818] shadow-inner"></span>
+                        <div>
+                          <div class="font-title-md text-body-md text-on-surface">Military Red</div>
+                          <div class="font-label-sm text-label-sm text-outline">Post-War Service</div>
+                        </div>
+                      </div>
+                      <span class="material-symbols-outlined text-outline text-[20px] opacity-0 checkmark">check_circle</span>
+                    </button>
+
+                    <!-- Option 3: Forest Green -->
+                    <button class="variant-btn w-full p-space-sm rounded-lg bg-surface-container text-left flex items-center justify-between shadow-sm transition-all hover:bg-surface-container-high border border-white/5" data-variant="forest-green" onclick="selectVariant('forest-green', 'Forest Green Heritage', 'Deep British Racing Green with Double Gold Coachlines.', '$4,849', 'Polished Chrome Engine Cases')">
+                      <div class="flex items-center gap-space-sm">
+                        <span class="w-6 h-6 rounded-full bg-[#1b382b] shadow-inner"></span>
+                        <div>
+                          <div class="font-title-md text-body-md text-on-surface">Forest Green</div>
+                          <div class="font-label-sm text-label-sm text-outline">Redditch British Green</div>
+                        </div>
+                      </div>
+                      <span class="material-symbols-outlined text-outline text-[20px] opacity-0 checkmark">check_circle</span>
+                    </button>
+
+                    <!-- Option 4: Standard Maroon -->
+                    <button class="variant-btn w-full p-space-sm rounded-lg bg-surface-container-high text-left flex items-center justify-between shadow-sm transition-all hover:bg-surface-container-highest border border-primary/40" data-variant="standard-maroon" onclick="selectVariant('standard-maroon', 'Standard Maroon', 'Deep Royal Maroon with Dual Hand-Drawn White Pinstripes.', '$4,799', 'Dual-Channel ABS Spoke Wheels')">
+                      <div class="flex items-center gap-space-sm">
+                        <span class="w-6 h-6 rounded-full bg-[#4a151b] shadow-inner ring-2 ring-primary"></span>
+                        <div>
+                          <div class="font-title-md text-body-md text-on-surface">Standard Maroon</div>
+                          <div class="font-label-sm text-label-sm text-primary">Classic Madras Heritage</div>
+                        </div>
+                      </div>
+                      <span class="material-symbols-outlined text-primary text-[20px] checkmark">check_circle</span>
+                    </button>
+                  </div>
+
+                  <!-- Dynamic Specification Note -->
+                  <p class="font-body-sm text-body-sm text-on-surface-variant mt-space-md p-space-sm rounded-lg bg-surface-container-lowest/50" id="variant-description">
+                    Deep Royal Maroon with Dual Hand-Drawn White Pinstripes.
+                  </p>
+                </div>
+
+                <!-- Price & Order Action -->
+                <div class="mt-space-md pt-space-sm border-t border-white/5">
+                  <div class="flex items-baseline justify-between mb-space-xs">
+                    <span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Estimated MSRP</span>
+                    <span class="font-headline-md text-headline-sm md:text-headline-md text-primary font-bold" id="variant-price">$4,799</span>
+                  </div>
+                  <span class="font-body-sm text-body-sm text-outline block mb-space-md">Ex-showroom pricing varies by region. Financing from $89/mo.</span>
+                  <div class="flex flex-col gap-space-xs">
+                    <a href="#test-ride" class="w-full py-3 rounded-full bg-primary text-on-primary font-label-caps text-label-caps uppercase tracking-widest shadow-xl hover:bg-primary-fixed-dim transition-all text-center">
+                      Configure &amp; Reserve
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           5. TEST RIDE & EXPERIENCE BANNER
+           ==================================================================== -->
+      <section class="w-full bg-surface-container-lowest py-space-xl" id="test-ride">
+        <div class="max-w-[1440px] mx-auto px-gutter">
+          <div class="relative rounded-2xl overflow-hidden bg-gradient-to-br from-surface-container-high via-surface-container to-surface-container-low p-space-lg md:p-space-xl shadow-2xl border border-white/5">
+            <div class="pointer-events-none absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-primary/10 blur-[80px]"></div>
+            <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+              <!-- Banner Copy -->
+              <div class="lg:col-span-5 flex flex-col">
+                <div class="inline-flex items-center gap-space-xs mb-space-xs">
+                  <span class="material-symbols-outlined text-primary text-[18px]">volume_up</span>
+                  <span class="font-label-caps text-label-caps text-primary uppercase tracking-[0.2em]">Sensory Experience</span>
+                </div>
+                <h2 class="font-headline-lg text-headline-md md:text-headline-lg text-on-surface">
+                  Experience the Thump Firsthand.
+                </h2>
+                <p class="font-body-lg text-body-md md:text-body-lg text-on-surface-variant mt-space-sm max-w-md">
+                  No digital render can recreate the visceral vibration through the handlebars or the low-frequency rumble at idle. Book your private 45-minute highway and city test loop.
+                </p>
+                <div class="mt-space-lg flex items-center gap-space-lg">
+                  <div class="flex flex-col">
+                    <span class="font-headline-sm text-title-lg text-on-surface">900+</span>
+                    <span class="font-label-sm text-label-sm text-outline">Authorised Dealers</span>
+                  </div>
+                  <div class="w-px h-8 bg-surface-container-highest"></div>
+                  <div class="flex flex-col">
+                    <span class="font-headline-sm text-title-lg text-on-surface">45 Min</span>
+                    <span class="font-label-sm text-label-sm text-outline">Extended Ride Duration</span>
+                  </div>
+                  <div class="w-px h-8 bg-surface-container-highest"></div>
+                  <div class="flex flex-col">
+                    <span class="font-headline-sm text-title-lg text-primary">0 Zero</span>
+                    <span class="font-label-sm text-label-sm text-outline">Deposit Required</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Quick Test-Ride Booking Form Card -->
+              <div class="lg:col-span-7 bg-surface-container-lowest/80 backdrop-blur-xl p-space-md md:p-space-lg rounded-xl shadow-xl border border-white/5">
+                <span class="font-label-caps text-label-caps uppercase text-primary tracking-widest block mb-space-sm">Schedule Test Ride</span>
+                <form class="grid grid-cols-1 sm:grid-cols-2 gap-space-md" id="booking-form" onsubmit="event.preventDefault(); handleBookingSubmit();">
+                  <!-- Name Input -->
+                  <div class="flex flex-col gap-1">
+                    <label class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant" for="rider-name">Full Name</label>
+                    <input class="w-full px-space-sm py-2.5 rounded-lg bg-surface-container text-on-surface font-body-md text-body-md placeholder-outline focus:outline-none focus:bg-surface-container-high transition-colors border border-white/5" id="rider-name" placeholder="e.g. Alistair Campbell" required type="text"/>
+                  </div>
+                  <!-- Phone/Mobile Input -->
+                  <div class="flex flex-col gap-1">
+                    <label class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant" for="rider-phone">Phone Number</label>
+                    <input class="w-full px-space-sm py-2.5 rounded-lg bg-surface-container text-on-surface font-body-md text-body-md placeholder-outline focus:outline-none focus:bg-surface-container-high transition-colors border border-white/5" id="rider-phone" placeholder="+1 (555) 019-2834" required type="tel"/>
+                  </div>
+                  <!-- Postal/ZIP Code Input -->
+                  <div class="flex flex-col gap-1">
+                    <label class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant" for="rider-zip">Postal / Zip Code</label>
+                    <input class="w-full px-space-sm py-2.5 rounded-lg bg-surface-container text-on-surface font-body-md text-body-md placeholder-outline focus:outline-none focus:bg-surface-container-high transition-colors border border-white/5" id="rider-zip" placeholder="e.g. 90210 or SW1A 1AA" required type="text"/>
+                  </div>
+                  <!-- Preferred Date -->
+                  <div class="flex flex-col gap-1">
+                    <label class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant" for="rider-date">Preferred Date</label>
+                    <input class="w-full px-space-sm py-2.5 rounded-lg bg-surface-container text-on-surface font-body-md text-body-md focus:outline-none focus:bg-surface-container-high transition-colors border border-white/5" id="rider-date" required type="date"/>
+                  </div>
+                  <!-- Model Edition Choice -->
+                  <div class="sm:col-span-2 flex flex-col gap-1">
+                    <label class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant" for="rider-model">Select Preferred Bullet Edition</label>
+                    <select class="w-full px-space-sm py-2.5 rounded-lg bg-surface-container text-on-surface font-body-md text-body-md focus:outline-none focus:bg-surface-container-high transition-colors border border-white/5" id="rider-model">
+                      <option value="standard-maroon" selected>Bullet 350 — Standard Maroon</option>
+                      <option value="forest-green">Bullet 350 — Forest Green Heritage</option>
+                      <option value="military-red">Bullet 350 — Military Red (Post-War Service)</option>
+                      <option value="black-gold">Bullet 350 — Black Gold (Dual-Channel ABS)</option>
+                    </select>
+                  </div>
+                  <!-- Submit CTA -->
+                  <div class="sm:col-span-2 pt-space-xs">
+                    <button class="w-full py-3.5 rounded-full bg-primary text-on-primary font-label-caps text-label-caps uppercase tracking-widest shadow-xl hover:bg-primary-fixed-dim transition-all flex items-center justify-center gap-2 group" id="submit-booking-btn" type="submit">
+                      <span class="material-symbols-outlined text-[18px]">near_me</span>
+                      <span>Confirm Test Ride Slot</span>
+                      <span class="material-symbols-outlined text-[16px] transition-transform group-hover:translate-x-1">arrow_forward</span>
+                    </button>
+                  </div>
+                </form>
+                <div class="hidden mt-space-md p-space-sm rounded-lg bg-surface-container-high text-primary flex items-center gap-2 font-label-md text-label-md" id="booking-success-msg">
+                  <span class="material-symbols-outlined text-[20px]">check_circle</span>
+                  <span>Test ride request lodged. Your nearest master dealership concierge will contact you within 2 hours.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ====================================================================
+       FOOTER SECTION
+       ==================================================================== -->
+  <footer class="w-full bg-surface-container-lowest text-on-surface-variant border-t border-white/5">
+    <div class="w-full px-gutter pt-space-xl pb-space-lg max-w-[1440px] mx-auto">
+      <div class="flex flex-col lg:flex-row items-start lg:items-end justify-between pb-space-lg mb-space-lg gap-space-md border-b border-white/5">
+        <div class="max-w-xl">
+          <div class="font-label-caps text-label-caps uppercase tracking-[0.2em] text-primary mb-space-xs flex items-center gap-space-xs">
+            <span class="material-symbols-outlined text-[16px]">military_tech</span>1901 • Redditch • Chennai
+          </div>
+          <h2 class="font-headline-lg text-headline-md sm:text-headline-lg text-on-surface tracking-tight mb-space-xs">
+            Made Like a Gun.
+          </h2>
+          <p class="font-body-md text-body-md text-outline max-w-md">
+            Nine decades of unbroken pedigree. Handcrafted enduring power, timeless thump, and the purest British-Indian mechanical lineage.
+          </p>
+        </div>
+        <div class="flex flex-wrap items-center gap-space-sm">
+          <a class="px-space-md py-space-xs rounded-full bg-primary text-on-primary font-label-caps text-label-caps uppercase tracking-wider hover:bg-primary-fixed-dim transition-colors" href="#test-ride">
+            Book a Test Ride
+          </a>
+          <a class="px-space-md py-space-xs rounded-full bg-surface-container text-on-surface font-label-caps text-label-caps uppercase tracking-wider hover:bg-surface-container-high transition-colors" href="#customizer">
+            Configure Bullet
+          </a>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-space-lg py-space-lg">
+        <div class="flex flex-col gap-space-sm">
+          <span class="font-label-caps text-label-caps uppercase tracking-widest text-primary">Motorcycles</span>
+          <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Bullet 350</a>
+          <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Classic Lineage</a>
+          <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Hunter Series</a>
+          <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Meteor 350</a>
+        </div>
+        <div class="flex flex-col gap-space-sm">
+          <span class="font-label-caps text-label-caps uppercase tracking-widest text-primary">Build &amp; Shop</span>
+          <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#customizer">Configurator</a>
+          <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Genuine Accessories</a>
+          <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Riding Apparel &amp; Gear</a>
+          <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Finance &amp; EMI Estimator</a>
+        </div>
+        <div class="flex flex-col gap-space-sm">
+          <span class="font-label-caps text-label-caps uppercase tracking-widest text-primary">Experience</span>
+          <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Heritage Archive</a>
+          <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Rides &amp; Expeditions</a>
+          <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Rider Stories</a>
+          <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">The Bullet Club</a>
+        </div>
+        <div class="flex flex-col gap-space-sm">
+          <span class="font-label-caps text-label-caps uppercase tracking-widest text-primary">Ownership</span>
+          <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Find a Dealer</a>
+          <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Service &amp; Warranty</a>
+          <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Roadside Assistance</a>
+          <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Owner's Manual</a>
+        </div>
+        <div class="flex flex-col gap-space-sm col-span-2 md:col-span-4 lg:col-span-1">
+          <span class="font-label-caps text-label-caps uppercase tracking-widest text-primary">Heritage Hotline</span>
+          <p class="font-body-sm text-body-sm text-outline">Call our concierge specialists for custom orders and heritage restorations.</p>
+          <span class="font-label-md text-label-md text-on-surface">1800 210 0007</span>
+          <div class="flex items-center gap-space-xs mt-space-xs">
+            <a aria-label="Global Network" class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors" href="#"><span class="material-symbols-outlined text-[18px]">public</span></a>
+            <a aria-label="Media Gallery" class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors" href="#"><span class="material-symbols-outlined text-[18px]">photo_camera</span></a>
+            <a aria-label="Broadcast Hub" class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors" href="#"><span class="material-symbols-outlined text-[18px]">podcasts</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-space-md flex flex-col md:flex-row items-center justify-between gap-space-sm font-label-sm text-label-sm text-outline border-t border-white/5">
+        <div class="flex items-center gap-space-sm">
+          <span>© 2025 Royal Enfield. Pure Motorcycling Since 1901.</span>
+        </div>
+        <div class="flex flex-wrap items-center gap-space-md">
+          <a class="hover:text-on-surface transition-colors" href="#">Privacy Policy</a>
+          <a class="hover:text-on-surface transition-colors" href="#">Terms &amp; Conditions</a>
+          <a class="hover:text-on-surface transition-colors" href="#">Cookie Preferences</a>
+          <a class="hover:text-on-surface transition-colors" href="#">Compliance &amp; Recall</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Customizer & Booking Scripts -->
+  <script>
+    const VARIANT_ASSETS = {
+      'military-red': {
+        img: 'images/bullet-military-red.jpg',
+        glow: 'rgba(215, 38, 38, 0.25)',
+        alt: 'Royal Enfield Bullet 350 Military Red (Post-War Service)'
+      },
+      'black-gold': {
+        img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuASarFNx8LaEfRSORdJASBxBGc3_vuekpYU3mb0eooZpWYJ95tfpT-8kDjGY9TbgwSsecMdjJJ-Aq7VoCt_XhU5pf_xsn6me5wbnAZygalMYQe7WAze-c902TZwTV6pwf2hR5WdF04HJce_es7cPV-XqFu0xoYW548zcNHvK-xvjxcLuBZZ26nSwZazvJnv4k4AIy005aFwZ0svwMo49dB-2UKr6rCfD2keeJmgz35MXsq2nvJWp7BzLvBoYTwic7VdaEs',
+        glow: 'rgba(242, 202, 80, 0.15)',
+        alt: 'Royal Enfield Bullet 350 Black Gold Edition'
+      },
+      'forest-green': {
+        img: 'images/bullet-forest-green.jpg',
+        glow: 'rgba(27, 80, 50, 0.25)',
+        alt: 'Royal Enfield Bullet 350 Forest Green Heritage'
+      },
+      'standard-maroon': {
+        img: 'images/bullet-standard-maroon.jpg',
+        glow: 'rgba(120, 30, 40, 0.25)',
+        alt: 'Royal Enfield Bullet 350 Standard Maroon'
+      }
+    };
+
+    function selectVariant(key, name, desc, price, trim) {
+      const nameElem = document.getElementById('active-variant-name');
+      const descElem = document.getElementById('variant-description');
+      const priceElem = document.getElementById('variant-price');
+      const badgeElem = document.getElementById('badge-trim-label');
+      
+      if (nameElem) nameElem.textContent = name;
+      if (descElem) descElem.textContent = desc;
+      if (priceElem) priceElem.textContent = price;
+      if (badgeElem) badgeElem.textContent = trim;
+
+      const buttons = document.querySelectorAll('.variant-btn');
+      buttons.forEach(btn => {
+        const check = btn.querySelector('.material-symbols-outlined');
+        if (btn.getAttribute('data-variant') === key) {
+          btn.classList.add('bg-surface-container-high', 'shadow-md', 'border-primary/40');
+          btn.classList.remove('bg-surface-container', 'border-white/5');
+          if (check) {
+            check.classList.remove('opacity-0', 'text-outline');
+            check.classList.add('text-primary');
+          }
+        } else {
+          btn.classList.remove('bg-surface-container-high', 'shadow-md', 'border-primary/40');
+          btn.classList.add('bg-surface-container', 'border-white/5');
+          if (check) {
+            check.classList.add('opacity-0', 'text-outline');
+            check.classList.remove('text-primary');
+          }
+        }
+      });
+
+      const modelSelect = document.getElementById('rider-model');
+      if (modelSelect) {
+        modelSelect.value = key;
+      }
+
+      const bikeImg = document.getElementById('customizer-bike-img');
+      const glowElem = document.getElementById('palette-ambient-glow');
+      const asset = VARIANT_ASSETS[key];
+
+      if (glowElem && asset?.glow) {
+        glowElem.style.backgroundColor = asset.glow;
+      }
+
+      if (bikeImg) {
+        bikeImg.style.opacity = '0.3';
+        bikeImg.style.transform = 'scale(0.96)';
+        setTimeout(() => {
+          if (asset?.img) {
+            bikeImg.src = asset.img;
+            if (asset.alt) bikeImg.alt = asset.alt;
+          }
+          bikeImg.style.opacity = '1';
+          bikeImg.style.transform = 'scale(1)';
+        }, 160);
+      }
+    }
+
+    function handleBookingSubmit() {
+      const form = document.getElementById('booking-form');
+      const msg = document.getElementById('booking-success-msg');
+      const btn = document.getElementById('submit-booking-btn');
+
+      if (btn) {
+        btn.innerHTML = `<span class="material-symbols-outlined text-[18px] animate-spin">refresh</span><span>Processing Request...</span>`;
+        btn.disabled = true;
+      }
+
+      setTimeout(() => {
+        if (msg) msg.classList.remove('hidden');
+        if (btn) {
+          btn.innerHTML = `<span class="material-symbols-outlined text-[18px]">verified</span><span>Slot Confirmed</span>`;
+          btn.classList.add('bg-surface-container-high', 'text-primary');
+          btn.classList.remove('bg-primary', 'text-on-primary');
+        }
+      }, 700);
+    }
+  </script>
+
+  <!-- Hero Scroll Animation Engine -->
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "royal-enfield-scroll-experience",
+  "version": "1.0.0",
+  "description": "Cinematic Scroll Frame Animation for Royal Enfield Himalayan Mountain Expedition",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["scroll-animation", "canvas", "scrollytelling", "royal-enfield"],
+  "author": "Antigravity",
+  "license": "MIT"
+}
