@@ -127,6 +127,335 @@
       background: #f2ca50;
       border-radius: 9999px;
     }
+
+    /* ====================================================================
+       ROYAL ENFIELD "EXPERIENCE THE RIDE" LUXURY BUTTON & HOVER DYNAMICS
+       ==================================================================== */
+    .btn-experience-ride {
+      position: relative;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, #f2ca50 0%, #e9c349 50%, #d4af37 100%);
+      color: #131315 !important;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      border-radius: 9999px;
+      border: 1px solid rgba(255, 240, 180, 0.45);
+      box-shadow: 0 4px 18px -2px rgba(242, 202, 80, 0.35), 0 2px 6px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.45);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, background 0.35s ease, border-color 0.35s ease;
+      text-decoration: none;
+      cursor: pointer;
+      user-select: none;
+      z-index: 1;
+    }
+
+    /* Ambient Pulsing Aura Behind Button */
+    .btn-experience-ride::after {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 9999px;
+      background: radial-gradient(circle, rgba(242, 202, 80, 0.45) 0%, rgba(212, 175, 55, 0.15) 50%, transparent 75%);
+      opacity: 0;
+      z-index: -1;
+      transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: scale(0.9);
+      pointer-events: none;
+    }
+
+    /* Metallic Light Gleam Shimmer Reflection */
+    .btn-experience-ride::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 70%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.55) 50%,
+        transparent 100%
+      );
+      transform: skewX(-25deg);
+      transition: left 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* Hover State: Elevation, Illuminated Specular Glow, Metallic Sheen */
+    .btn-experience-ride:hover {
+      transform: translateY(-2.5px) scale(1.03);
+      background: linear-gradient(135deg, #ffe088 0%, #f2ca50 50%, #e9c349 100%);
+      border-color: rgba(255, 245, 200, 0.85);
+      box-shadow: 0 0 32px rgba(242, 202, 80, 0.6), 0 12px 28px -4px rgba(0, 0, 0, 0.65), 0 0 10px rgba(255, 224, 136, 0.45), inset 0 1px 2px rgba(255, 255, 255, 0.75);
+      color: #08090c !important;
+    }
+
+    .btn-experience-ride:hover::before {
+      left: 160%;
+    }
+
+    .btn-experience-ride:hover::after {
+      opacity: 1;
+      transform: scale(1.15);
+    }
+
+    /* Click / Active State: Tactile Compression */
+    .btn-experience-ride:active {
+      transform: translateY(0.5px) scale(0.98);
+      box-shadow: 0 2px 10px rgba(242, 202, 80, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Motorcycle Icon Throttle Lean Animation */
+    .btn-experience-ride .bike-icon {
+      display: inline-flex;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .btn-experience-ride:hover .bike-icon {
+      transform: translateX(3px) rotate(-8deg) scale(1.12);
+    }
+
+    /* Arrow Icon Acceleration Slide */
+    .btn-experience-ride .arrow-icon {
+      display: inline-flex;
+      opacity: 0.75;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+    }
+
+    .btn-experience-ride:hover .arrow-icon {
+      transform: translateX(4px);
+      opacity: 1;
+    }
+
+    /* ====================================================================
+       INFINITE LOOP TEXT MARQUEE / TICKER ANIMATION
+       ==================================================================== */
+    @keyframes marquee-scroll {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+
+    @keyframes marquee-scroll-reverse {
+      0% { transform: translateX(-50%); }
+      100% { transform: translateX(0%); }
+    }
+
+    .marquee-container {
+      overflow: hidden;
+      white-space: nowrap;
+      display: flex;
+      user-select: none;
+      position: relative;
+      mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    }
+
+    .marquee-content {
+      display: inline-flex;
+      align-items: center;
+      flex-shrink: 0;
+      animation: marquee-scroll 28s linear infinite;
+      will-change: transform;
+    }
+
+    .marquee-content-reverse {
+      display: inline-flex;
+      align-items: center;
+      flex-shrink: 0;
+      animation: marquee-scroll-reverse 30s linear infinite;
+      will-change: transform;
+    }
+
+    .marquee-container:hover .marquee-content,
+    .marquee-container:hover .marquee-content-reverse {
+      animation-play-state: paused;
+    }
+
+    /* ====================================================================
+       PANEL & CARD DYNAMIC ANIMATIONS (TILT, SPOTLIGHT, GLOW)
+       ==================================================================== */
+    .card-interactive {
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease, background-color 0.4s ease;
+      will-change: transform;
+    }
+
+    .card-interactive::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        450px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(242, 202, 80, 0.15),
+        transparent 65%
+      );
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .card-interactive:hover {
+      transform: translateY(-5px) scale(1.012);
+      border-color: rgba(242, 202, 80, 0.38) !important;
+      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.85), 0 0 28px -4px rgba(242, 202, 80, 0.22);
+    }
+
+    .card-interactive:hover::before {
+      opacity: 1;
+    }
+
+    /* Timeline Energy Flow Beam */
+    @keyframes timeline-pulse-beam {
+      0% { transform: translateY(-100%); opacity: 0; }
+      15% { opacity: 1; }
+      85% { opacity: 1; }
+      100% { transform: translateY(350%); opacity: 0; }
+    }
+
+    .timeline-beam-track {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .timeline-beam-track::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: linear-gradient(180deg, transparent, #f2ca50, transparent);
+      animation: timeline-pulse-beam 2.8s ease-in-out infinite;
+      border-radius: 9999px;
+      box-shadow: 0 0 12px #f2ca50;
+    }
+
+    /* Pinstripe Handcraft SVG Laser Draw Animation */
+    @keyframes pinstripe-draw {
+      0% { stroke-dashoffset: 800; opacity: 0; }
+      12% { opacity: 1; }
+      75% { stroke-dashoffset: 0; opacity: 1; }
+      92%, 100% { stroke-dashoffset: 0; opacity: 0; }
+    }
+
+    .pinstripe-animated-path {
+      stroke-dasharray: 800;
+      stroke-dashoffset: 800;
+      animation: pinstripe-draw 4.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+
+    /* Engine Heartbeat Pulse */
+    @keyframes thump-heartbeat {
+      0%, 100% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(242, 202, 80, 0)); }
+      12% { transform: scale(1.18); filter: drop-shadow(0 0 14px rgba(242, 202, 80, 0.9)); }
+      24% { transform: scale(1.05); filter: drop-shadow(0 0 6px rgba(242, 202, 80, 0.5)); }
+      38% { transform: scale(1.24); filter: drop-shadow(0 0 18px rgba(242, 202, 80, 0.95)); }
+      54% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(242, 202, 80, 0)); }
+    }
+
+    .engine-pulse-active {
+      animation: thump-heartbeat 1.25s infinite cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Floating Antigravity Badge Animation */
+    @keyframes soft-float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-7px); }
+    }
+
+    .animate-float {
+      animation: soft-float 3.5s ease-in-out infinite;
+    }
+
+    /* Live Equalizer Soundwave Bars Animation */
+    @keyframes soundwave-1 { 0%, 100% { height: 6px; } 50% { height: 26px; } }
+    @keyframes soundwave-2 { 0%, 100% { height: 22px; } 50% { height: 9px; } }
+    @keyframes soundwave-3 { 0%, 100% { height: 10px; } 50% { height: 30px; } }
+    @keyframes soundwave-4 { 0%, 100% { height: 26px; } 50% { height: 12px; } }
+    @keyframes soundwave-5 { 0%, 100% { height: 8px; } 50% { height: 22px; } }
+
+    .soundwave-bar:nth-child(1) { animation: soundwave-1 0.65s ease-in-out infinite; }
+    .soundwave-bar:nth-child(2) { animation: soundwave-2 0.8s ease-in-out infinite 0.1s; }
+    .soundwave-bar:nth-child(3) { animation: soundwave-3 0.6s ease-in-out infinite 0.2s; }
+    .soundwave-bar:nth-child(4) { animation: soundwave-4 0.9s ease-in-out infinite 0.15s; }
+    .soundwave-bar:nth-child(5) { animation: soundwave-5 0.75s ease-in-out infinite 0.25s; }
+
+    /* Mechanical Cadence Shake / Vibe */
+    @keyframes mechanical-vibe {
+      0%, 100% { transform: translate(0, 0); }
+      20% { transform: translate(-1px, 0.8px); }
+      40% { transform: translate(1px, -0.8px); }
+      60% { transform: translate(-0.8px, -0.6px); }
+      80% { transform: translate(0.8px, 0.6px); }
+    }
+
+    .vibe-active {
+      animation: mechanical-vibe 0.12s linear infinite;
+    }
+
+    /* Glowing Badge Pulsing Ring */
+    @keyframes pulse-ring {
+      0% { transform: scale(0.9); opacity: 0.8; }
+      100% { transform: scale(1.6); opacity: 0; }
+    }
+
+    .pulse-ring-active::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 9999px;
+      border: 2px solid #f2ca50;
+      animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+      pointer-events: none;
+    }
+
+    /* ====================================================================
+       SMOOTH SCROLL-TRIGGERED FADE-IN ANIMATION (INTERSECTION OBSERVER)
+       Transitions from low opacity & subtle downward offset to full presence.
+       Resets dynamically when exiting viewport so it re-animates on scroll back.
+       ==================================================================== */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translate3d(0, 26px, 0);
+      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .scroll-reveal.is-revealed {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+
+    /* Preserve card-interactive hover elevation when revealed */
+    .scroll-reveal.card-interactive.is-revealed:hover {
+      transform: translateY(-5px) scale(1.012) !important;
+    }
+
+    /* Stagger Delays for Multiple Sibling Elements (80ms increments) */
+    .scroll-reveal[data-reveal-delay="1"] { transition-delay: 80ms; }
+    .scroll-reveal[data-reveal-delay="2"] { transition-delay: 160ms; }
+    .scroll-reveal[data-reveal-delay="3"] { transition-delay: 240ms; }
+    .scroll-reveal[data-reveal-delay="4"] { transition-delay: 320ms; }
+    .scroll-reveal[data-reveal-delay="5"] { transition-delay: 400ms; }
+
+    /* Accessibility: Respect user reduced motion preference */
+    @media (prefers-reduced-motion: reduce) {
+      .scroll-reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+    }
   </style>
 </head>
 <body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container min-h-screen">
@@ -153,8 +482,61 @@
               ROYAL ENFIELD · MOUNTAIN RUN
             </span>
           </div>
+
+          <!-- Top Right Action CTA: Experience The Ride Button -->
+          <div class="absolute top-7 right-6 md:right-8 z-20 flex items-center">
+            <a href="#test-ride" class="btn-experience-ride px-5 py-2.5 text-[11px] md:text-xs shadow-xl" id="hero-experience-btn">
+              <span class="material-symbols-outlined text-[17px] bike-icon">two_wheeler</span>
+              <span>Experience The Ride</span>
+              <span class="material-symbols-outlined text-[15px] arrow-icon">arrow_forward</span>
+            </a>
+          </div>
         </div>
       </section>
+
+      <!-- ====================================================================
+           INFINITE LOOP TICKER RIBBON 1: HERITAGE & MOTORCYCLING MANTRA
+           ==================================================================== -->
+      <div class="scroll-reveal w-full bg-[#0d0d10] border-y border-primary/20 py-3 relative overflow-hidden z-20 shadow-2xl">
+        <div class="marquee-container">
+          <div class="marquee-content flex items-center gap-8 text-on-surface font-label-caps text-label-caps uppercase tracking-[0.22em] text-xs">
+            <span class="flex items-center gap-2 text-primary font-bold"><span class="material-symbols-outlined text-sm">military_tech</span> MADE LIKE A GUN</span>
+            <span class="text-primary/40">✦</span>
+            <span class="text-on-surface">PURE MOTORCYCLING SINCE 1901</span>
+            <span class="text-primary/40">✦</span>
+            <span class="text-secondary">REDDITCH TO CHENNAI</span>
+            <span class="text-primary/40">✦</span>
+            <span class="text-primary font-bold">THE THUMP LIVES FOREVER</span>
+            <span class="text-primary/40">✦</span>
+            <span class="text-on-surface">HAND-PAINTED MADRAS PINSTRIPES</span>
+            <span class="text-primary/40">✦</span>
+            <span class="text-secondary">UNBROKEN CONTINUOUS PRODUCTION</span>
+            <span class="text-primary/40">✦</span>
+            <span class="text-primary font-bold">J-SERIES 349cc REFINEMENT</span>
+            <span class="text-primary/40">✦</span>
+            <span class="text-on-surface">BUILT FOR RUGGED FRONTIERS</span>
+            <span class="text-primary/40">✦</span>
+          </div>
+          <div class="marquee-content flex items-center gap-8 text-on-surface font-label-caps text-label-caps uppercase tracking-[0.22em] text-xs" aria-hidden="true">
+            <span class="flex items-center gap-2 text-primary font-bold"><span class="material-symbols-outlined text-sm">military_tech</span> MADE LIKE A GUN</span>
+            <span class="text-primary/40">✦</span>
+            <span class="text-on-surface">PURE MOTORCYCLING SINCE 1901</span>
+            <span class="text-primary/40">✦</span>
+            <span class="text-secondary">REDDITCH TO CHENNAI</span>
+            <span class="text-primary/40">✦</span>
+            <span class="text-primary font-bold">THE THUMP LIVES FOREVER</span>
+            <span class="text-primary/40">✦</span>
+            <span class="text-on-surface">HAND-PAINTED MADRAS PINSTRIPES</span>
+            <span class="text-primary/40">✦</span>
+            <span class="text-secondary">UNBROKEN CONTINUOUS PRODUCTION</span>
+            <span class="text-primary/40">✦</span>
+            <span class="text-primary font-bold">J-SERIES 349cc REFINEMENT</span>
+            <span class="text-primary/40">✦</span>
+            <span class="text-on-surface">BUILT FOR RUGGED FRONTIERS</span>
+            <span class="text-primary/40">✦</span>
+          </div>
+        </div>
+      </div>
 
       <!-- ====================================================================
            2. HERITAGE & STORYTELLING SECTION
@@ -162,7 +544,7 @@
       <section class="w-full bg-surface-dim py-space-xl">
         <div class="max-w-[1440px] mx-auto px-gutter">
           <!-- Section Intro Header -->
-          <div class="flex flex-col md:flex-row md:items-end justify-between mb-space-xl gap-space-md">
+          <div class="scroll-reveal flex flex-col md:flex-row md:items-end justify-between mb-space-xl gap-space-md">
             <div>
               <div class="flex items-center gap-2 mb-space-xs">
                 <span class="w-8 h-px bg-primary"></span>
@@ -181,24 +563,34 @@
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-center">
             <!-- Visual Column: Archival & Detail Craft -->
             <div class="lg:col-span-5 flex flex-col gap-space-md">
-              <div class="relative rounded-xl overflow-hidden shadow-2xl bg-surface-container group">
+              <div class="scroll-reveal card-interactive relative rounded-xl overflow-hidden shadow-2xl bg-surface-container group border border-white/5" data-reveal-delay="1">
                 <img class="w-full h-80 object-cover transform transition-transform duration-700 group-hover:scale-105" alt="Master craftsman applying gold pinstripes by hand onto a motorcycle tank" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCowoKUgq-gcD3ToWuoUCl9dLbKfPuAeqQ6QEwb1tb1hLkzw7a8MNOFzNSl9ovtfCtwxbScsdbejhtWsDNewZoAdiMlRy95cXDuLtTw6uTt7oJyk_VjMwWZP622ypyMAcCNCVpc74nDDHywGzTytAGfr8KOd0VjevdPa14UzPRf1gZXqtVBKg5kU2PxJ_7l719QyimGtKjkA-JszNR8gC8iS5-vlaijA4QznQrFeLVh84hF4hoLtBtcsg"/>
+                
+                <!-- Glowing Hand-Drawn Laser Pinstripes SVG Animation -->
+                <svg class="pointer-events-none absolute inset-0 w-full h-full z-10" viewBox="0 0 400 320" fill="none">
+                  <path d="M 45,190 Q 170,120 355,215" stroke="#f2ca50" stroke-width="2.5" stroke-linecap="round" class="pinstripe-animated-path" filter="drop-shadow(0 0 6px rgba(242, 202, 80, 0.9))"/>
+                  <path d="M 60,202 Q 178,135 340,227" stroke="#ffe088" stroke-width="1.5" stroke-linecap="round" class="pinstripe-animated-path" style="animation-delay: 0.35s;" filter="drop-shadow(0 0 4px rgba(242, 202, 80, 0.7))"/>
+                </svg>
+
                 <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent opacity-90"></div>
-                <div class="absolute bottom-0 left-0 right-0 p-space-md">
-                  <span class="font-label-caps text-label-caps text-primary uppercase tracking-widest">Madras Handcraft</span>
+                <div class="absolute bottom-0 left-0 right-0 p-space-md z-10">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                    <span class="font-label-caps text-label-caps text-primary uppercase tracking-widest">Madras Handcraft</span>
+                  </div>
                   <h3 class="font-title-lg text-title-lg text-on-surface mt-1">Two Strokes. Forty Years of Muscle Memory.</h3>
                   <p class="font-body-sm text-body-sm text-outline mt-1">Each tank is pinstriped without stencils or tape — a human signature baked into metal.</p>
                 </div>
               </div>
 
               <!-- Historical Quote Panel -->
-              <div class="bg-surface-container-low rounded-xl p-space-md shadow-md border border-white/5">
-                <span class="font-headline-lg text-headline-lg text-primary/30 leading-none">“</span>
+              <div class="scroll-reveal card-interactive bg-surface-container-low rounded-xl p-space-md shadow-md border border-white/5 group" data-reveal-delay="2">
+                <span class="font-headline-lg text-headline-lg text-primary/40 leading-none group-hover:text-primary transition-colors">“</span>
                 <p class="font-headline-sm text-title-lg italic text-on-surface -mt-3">
                   Pure motorcycling isn't about speed or noise. It is about soul, gravity, and the timeless presence of metal moving forward.
                 </p>
                 <div class="flex items-center gap-space-sm mt-space-md">
-                  <div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-xs">RE</div>
+                  <div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold text-xs ring-1 ring-primary/40">RE</div>
                   <span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Royal Enfield Heritage Archives · Chennai</span>
                 </div>
               </div>
@@ -207,12 +599,12 @@
             <!-- Timeline Steps Column -->
             <div class="lg:col-span-7 flex flex-col gap-space-lg lg:pl-space-md">
               <!-- Milestone 1932 -->
-              <div class="flex gap-space-md group">
+              <div class="scroll-reveal flex gap-space-md group" data-reveal-delay="1">
                 <div class="flex flex-col items-center">
-                  <span class="font-headline-lg text-headline-sm md:text-headline-md text-primary font-bold">1932</span>
-                  <div class="w-0.5 flex-1 bg-surface-container-highest my-space-xs group-hover:bg-primary transition-colors"></div>
+                  <span class="font-headline-lg text-headline-sm md:text-headline-md text-primary font-bold tracking-tight">1932</span>
+                  <div class="w-0.5 flex-1 bg-surface-container-highest my-space-xs timeline-beam-track group-hover:bg-primary transition-colors"></div>
                 </div>
-                <div class="bg-surface-container p-space-md rounded-xl flex-1 shadow-sm border border-white/5">
+                <div class="card-interactive bg-surface-container p-space-md rounded-xl flex-1 shadow-sm border border-white/5">
                   <div class="flex items-center justify-between mb-space-xs">
                     <span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">The Birth of an Icon</span>
                     <span class="font-label-sm text-label-sm text-outline">Redditch, UK</span>
@@ -225,12 +617,12 @@
               </div>
 
               <!-- Milestone 1955 -->
-              <div class="flex gap-space-md group">
+              <div class="scroll-reveal flex gap-space-md group" data-reveal-delay="2">
                 <div class="flex flex-col items-center">
-                  <span class="font-headline-lg text-headline-sm md:text-headline-md text-secondary font-bold">1955</span>
-                  <div class="w-0.5 flex-1 bg-surface-container-highest my-space-xs group-hover:bg-secondary transition-colors"></div>
+                  <span class="font-headline-lg text-headline-sm md:text-headline-md text-secondary font-bold tracking-tight">1955</span>
+                  <div class="w-0.5 flex-1 bg-surface-container-highest my-space-xs timeline-beam-track group-hover:bg-secondary transition-colors"></div>
                 </div>
-                <div class="bg-surface-container p-space-md rounded-xl flex-1 shadow-sm border border-white/5">
+                <div class="card-interactive bg-surface-container p-space-md rounded-xl flex-1 shadow-sm border border-white/5">
                   <div class="flex items-center justify-between mb-space-xs">
                     <span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Guardian of the Borders</span>
                     <span class="font-label-sm text-label-sm text-outline">Madras, India</span>
@@ -243,12 +635,14 @@
               </div>
 
               <!-- Milestone 2024+ -->
-              <div class="flex gap-space-md group">
+              <div class="scroll-reveal flex gap-space-md group" data-reveal-delay="3">
                 <div class="flex flex-col items-center">
-                  <span class="font-headline-lg text-headline-sm md:text-headline-md text-on-surface font-bold">2024</span>
-                  <div class="w-2.5 h-2.5 rounded-full bg-primary mt-space-xs"></div>
+                  <span class="font-headline-lg text-headline-sm md:text-headline-md text-on-surface font-bold tracking-tight">2024</span>
+                  <div class="w-3.5 h-3.5 rounded-full bg-primary mt-space-xs pulse-ring-active relative flex items-center justify-center">
+                    <span class="w-1.5 h-1.5 rounded-full bg-background"></span>
+                  </div>
                 </div>
-                <div class="bg-surface-container-high p-space-md rounded-xl flex-1 shadow-md border border-white/5">
+                <div class="card-interactive bg-surface-container-high p-space-md rounded-xl flex-1 shadow-md border border-white/5">
                   <div class="flex items-center justify-between mb-space-xs">
                     <span class="font-label-caps text-label-caps text-primary uppercase tracking-widest">The Modern Era</span>
                     <span class="font-label-sm text-label-sm text-primary">Global Lineage</span>
@@ -265,12 +659,52 @@
       </section>
 
       <!-- ====================================================================
+           INFINITE LOOP TICKER RIBBON 2: REVERSE TECHNICAL TELEMETRY
+           ==================================================================== -->
+      <div class="scroll-reveal w-full bg-[#0a0a0c] border-y border-white/5 py-3 relative overflow-hidden z-20">
+        <div class="marquee-container">
+          <div class="marquee-content-reverse flex items-center gap-8 text-on-surface-variant font-label-caps text-label-caps uppercase tracking-[0.2em] text-xs">
+            <span class="text-primary font-bold">349CC AIR-OIL COOLED J-SERIES</span>
+            <span class="text-outline">/</span>
+            <span class="text-on-surface">27 NM TORQUE @ 4,000 RPM</span>
+            <span class="text-outline">/</span>
+            <span class="text-secondary">41MM FRONT TELESCOPIC FORKS</span>
+            <span class="text-outline">/</span>
+            <span class="text-primary font-bold">DUAL-CHANNEL BYBRE ABS WITH 300MM ROTOR</span>
+            <span class="text-outline">/</span>
+            <span class="text-on-surface">HARRIS PERFORMANCE DOWNTUBE SPINE CHASSIS</span>
+            <span class="text-outline">/</span>
+            <span class="text-secondary">13.0 LITRES TEARDROP TANK</span>
+            <span class="text-outline">/</span>
+            <span class="text-primary font-bold">805MM LOW-GRAVITY SADDLE</span>
+            <span class="text-outline">/</span>
+          </div>
+          <div class="marquee-content-reverse flex items-center gap-8 text-on-surface-variant font-label-caps text-label-caps uppercase tracking-[0.2em] text-xs" aria-hidden="true">
+            <span class="text-primary font-bold">349CC AIR-OIL COOLED J-SERIES</span>
+            <span class="text-outline">/</span>
+            <span class="text-on-surface">27 NM TORQUE @ 4,000 RPM</span>
+            <span class="text-outline">/</span>
+            <span class="text-secondary">41MM FRONT TELESCOPIC FORKS</span>
+            <span class="text-outline">/</span>
+            <span class="text-primary font-bold">DUAL-CHANNEL BYBRE ABS WITH 300MM ROTOR</span>
+            <span class="text-outline">/</span>
+            <span class="text-on-surface">HARRIS PERFORMANCE DOWNTUBE SPINE CHASSIS</span>
+            <span class="text-outline">/</span>
+            <span class="text-secondary">13.0 LITRES TEARDROP TANK</span>
+            <span class="text-outline">/</span>
+            <span class="text-primary font-bold">805MM LOW-GRAVITY SADDLE</span>
+            <span class="text-outline">/</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====================================================================
            3. KEY FEATURES & SPECS GRID (INTERACTIVE CARD MATRIX)
            ==================================================================== -->
       <section class="w-full bg-surface-container-lowest py-space-xl">
         <div class="max-w-[1440px] mx-auto px-gutter">
           <!-- Section Header -->
-          <div class="text-center max-w-2xl mx-auto mb-space-xl">
+          <div class="scroll-reveal text-center max-w-2xl mx-auto mb-space-xl">
             <span class="font-label-caps text-label-caps uppercase text-primary tracking-[0.24em]">Mechanical Purity</span>
             <h2 class="font-headline-lg text-headline-md md:text-headline-lg text-on-surface mt-1">
               Precision Cast. Purely Mechanical.
@@ -283,21 +717,27 @@
           <!-- Feature Grid Bento Matrix -->
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
             <!-- Card 1: J-Series Engine -->
-            <div class="bg-surface-container p-space-md rounded-xl shadow-lg flex flex-col justify-between hover:bg-surface-container-high transition-colors group border border-white/5">
+            <div class="scroll-reveal card-interactive bg-surface-container p-space-md rounded-xl shadow-lg flex flex-col justify-between hover:bg-surface-container-high transition-all group border border-white/5" data-reveal-delay="1">
               <div>
-                <div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary mb-space-md group-hover:scale-110 transition-transform">
-                  <span class="material-symbols-outlined text-[28px]">hardware</span>
+                <div class="flex items-center justify-between mb-space-md">
+                  <div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary group-hover:scale-110 transition-transform shadow-inner border border-primary/20">
+                    <span class="material-symbols-outlined text-[28px] engine-pulse-active">hardware</span>
+                  </div>
+                  <button type="button" onclick="toggleEngineThump()" class="px-2.5 py-1 rounded-full bg-primary/10 border border-primary/30 text-primary text-[11px] font-label-caps uppercase tracking-wider flex items-center gap-1.5 hover:bg-primary/20 transition-all cursor-pointer" title="Simulate 349cc Thump">
+                    <span class="material-symbols-outlined text-[13px]" id="engine-card-icon">volume_up</span>
+                    <span id="engine-card-text">Listen Thump</span>
+                  </button>
                 </div>
                 <span class="font-label-caps text-label-caps uppercase text-secondary tracking-widest">Powertrain</span>
-                <h3 class="font-title-lg text-title-lg text-on-surface mt-1 mb-space-xs">J-Series 349cc Heart</h3>
+                <h3 class="font-title-lg text-title-lg text-on-surface mt-1 mb-space-xs group-hover:text-primary transition-colors">J-Series 349cc Heart</h3>
                 <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
                   Air-oil cooled single-cylinder with integrated primary counterbalancer shaft. Delivers the signature heavy heartbeat without body-numbing vibrations.
                 </p>
               </div>
-              <div class="mt-space-lg pt-space-sm bg-surface-container-lowest/40 rounded-lg p-space-sm">
+              <div class="mt-space-lg pt-space-sm bg-surface-container-lowest/40 rounded-lg p-space-sm border border-white/5 group-hover:border-primary/20 transition-colors">
                 <div class="flex justify-between items-baseline">
                   <span class="font-label-sm text-label-sm text-outline">Peak Torque</span>
-                  <span class="font-label-md text-label-md text-primary">27 Nm @ 4,000 RPM</span>
+                  <span class="font-label-md text-label-md text-primary font-bold">27 Nm @ 4,000 RPM</span>
                 </div>
                 <div class="flex justify-between items-baseline mt-1">
                   <span class="font-label-sm text-label-sm text-outline">Bore x Stroke</span>
@@ -307,21 +747,24 @@
             </div>
 
             <!-- Card 2: Styling & Ergonomics -->
-            <div class="bg-surface-container p-space-md rounded-xl shadow-lg flex flex-col justify-between hover:bg-surface-container-high transition-colors group border border-white/5">
+            <div class="scroll-reveal card-interactive bg-surface-container p-space-md rounded-xl shadow-lg flex flex-col justify-between hover:bg-surface-container-high transition-all group border border-white/5" data-reveal-delay="2">
               <div>
-                <div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary mb-space-md group-hover:scale-110 transition-transform">
-                  <span class="material-symbols-outlined text-[28px]">airline_seat_recline_extra</span>
+                <div class="flex items-center justify-between mb-space-md">
+                  <div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary group-hover:scale-110 transition-transform shadow-inner border border-primary/20">
+                    <span class="material-symbols-outlined text-[28px]">airline_seat_recline_extra</span>
+                  </div>
+                  <span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-outline text-[10px] font-label-caps uppercase tracking-wider">All-Day Touring</span>
                 </div>
                 <span class="font-label-caps text-label-caps uppercase text-secondary tracking-widest">Ergonomics</span>
-                <h3 class="font-title-lg text-title-lg text-on-surface mt-1 mb-space-xs">Single-Piece Contour Seat</h3>
+                <h3 class="font-title-lg text-title-lg text-on-surface mt-1 mb-space-xs group-hover:text-primary transition-colors">Single-Piece Contour Seat</h3>
                 <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
                   Redesigned generous foam density bench saddle engineered for all-day touring comfort, paired with neutral footpegs and high-rise handlebars.
                 </p>
               </div>
-              <div class="mt-space-lg pt-space-sm bg-surface-container-lowest/40 rounded-lg p-space-sm">
+              <div class="mt-space-lg pt-space-sm bg-surface-container-lowest/40 rounded-lg p-space-sm border border-white/5 group-hover:border-primary/20 transition-colors">
                 <div class="flex justify-between items-baseline">
                   <span class="font-label-sm text-label-sm text-outline">Saddle Height</span>
-                  <span class="font-label-md text-label-md text-primary">805 mm Accessible</span>
+                  <span class="font-label-md text-label-md text-primary font-bold">805 mm Accessible</span>
                 </div>
                 <div class="flex justify-between items-baseline mt-1">
                   <span class="font-label-sm text-label-sm text-outline">Fuel Tank</span>
@@ -331,21 +774,24 @@
             </div>
 
             <!-- Card 3: Modern Tech & ABS -->
-            <div class="bg-surface-container p-space-md rounded-xl shadow-lg flex flex-col justify-between hover:bg-surface-container-high transition-colors group border border-white/5">
+            <div class="scroll-reveal card-interactive bg-surface-container p-space-md rounded-xl shadow-lg flex flex-col justify-between hover:bg-surface-container-high transition-all group border border-white/5" data-reveal-delay="3">
               <div>
-                <div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary mb-space-md group-hover:scale-110 transition-transform">
-                  <span class="material-symbols-outlined text-[28px]">speed</span>
+                <div class="flex items-center justify-between mb-space-md">
+                  <div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary group-hover:scale-110 transition-transform shadow-inner border border-primary/20">
+                    <span class="material-symbols-outlined text-[28px]">speed</span>
+                  </div>
+                  <span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-outline text-[10px] font-label-caps uppercase tracking-wider">Bosch Gen-9</span>
                 </div>
                 <span class="font-label-caps text-label-caps uppercase text-secondary tracking-widest">Control &amp; Safety</span>
-                <h3 class="font-title-lg text-title-lg text-on-surface mt-1 mb-space-xs">Dual-Channel ByBre ABS</h3>
+                <h3 class="font-title-lg text-title-lg text-on-surface mt-1 mb-space-xs group-hover:text-primary transition-colors">Dual-Channel ByBre ABS</h3>
                 <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
                   300mm front rotor and 270mm rear disc supported by Bosch dual-channel anti-lock brakes for confident stopping grip in wet conditions.
                 </p>
               </div>
-              <div class="mt-space-lg pt-space-sm bg-surface-container-lowest/40 rounded-lg p-space-sm">
+              <div class="mt-space-lg pt-space-sm bg-surface-container-lowest/40 rounded-lg p-space-sm border border-white/5 group-hover:border-primary/20 transition-colors">
                 <div class="flex justify-between items-baseline">
                   <span class="font-label-sm text-label-sm text-outline">Front Disc</span>
-                  <span class="font-label-md text-label-md text-primary">300mm Twin Piston</span>
+                  <span class="font-label-md text-label-md text-primary font-bold">300mm Twin Piston</span>
                 </div>
                 <div class="flex justify-between items-baseline mt-1">
                   <span class="font-label-sm text-label-sm text-outline">Aux Tech</span>
@@ -355,21 +801,24 @@
             </div>
 
             <!-- Card 4: Chassis Dynamics -->
-            <div class="bg-surface-container p-space-md rounded-xl shadow-lg flex flex-col justify-between hover:bg-surface-container-high transition-colors group border border-white/5">
+            <div class="scroll-reveal card-interactive bg-surface-container p-space-md rounded-xl shadow-lg flex flex-col justify-between hover:bg-surface-container-high transition-all group border border-white/5" data-reveal-delay="4">
               <div>
-                <div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary mb-space-md group-hover:scale-110 transition-transform">
-                  <span class="material-symbols-outlined text-[28px]">tune</span>
+                <div class="flex items-center justify-between mb-space-md">
+                  <div class="w-12 h-12 rounded-xl bg-surface-container-high flex items-center justify-center text-primary group-hover:scale-110 transition-transform shadow-inner border border-primary/20">
+                    <span class="material-symbols-outlined text-[28px]">tune</span>
+                  </div>
+                  <span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-outline text-[10px] font-label-caps uppercase tracking-wider">Harris Tuned</span>
                 </div>
                 <span class="font-label-caps text-label-caps uppercase text-secondary tracking-widest">Dynamics</span>
-                <h3 class="font-title-lg text-title-lg text-on-surface mt-1 mb-space-xs">Twin Downtube Spine</h3>
+                <h3 class="font-title-lg text-title-lg text-on-surface mt-1 mb-space-xs group-hover:text-primary transition-colors">Twin Downtube Spine</h3>
                 <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
                   Harris Performance tuned spine chassis providing unshakable cornering stability, paired with beefy 41mm telescopic front forks.
                 </p>
               </div>
-              <div class="mt-space-lg pt-space-sm bg-surface-container-lowest/40 rounded-lg p-space-sm">
+              <div class="mt-space-lg pt-space-sm bg-surface-container-lowest/40 rounded-lg p-space-sm border border-white/5 group-hover:border-primary/20 transition-colors">
                 <div class="flex justify-between items-baseline">
                   <span class="font-label-sm text-label-sm text-outline">Front Fork</span>
-                  <span class="font-label-md text-label-md text-primary">41mm (130mm Travel)</span>
+                  <span class="font-label-md text-label-md text-primary font-bold">41mm (130mm Travel)</span>
                 </div>
                 <div class="flex justify-between items-baseline mt-1">
                   <span class="font-label-sm text-label-sm text-outline">Rear Shock</span>
@@ -380,20 +829,21 @@
           </div>
 
           <!-- Technical Telemetry Banner -->
-          <div class="mt-space-lg bg-surface-container p-space-md rounded-xl flex flex-col lg:flex-row items-center justify-between gap-space-md shadow-lg border border-white/5">
+          <div class="scroll-reveal card-interactive mt-space-lg bg-surface-container p-space-md rounded-xl flex flex-col lg:flex-row items-center justify-between gap-space-md shadow-lg border border-white/5 group hover:border-primary/30 transition-all">
             <div class="flex items-center gap-space-md">
-              <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+              <div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary/30 transition-all">
                 <span class="material-symbols-outlined">straighten</span>
               </div>
               <div>
-                <span class="font-title-md text-title-md text-on-surface">Full Engineering Spec Sheet Available</span>
+                <span class="font-title-md text-title-md text-on-surface group-hover:text-primary transition-colors">Full Engineering Spec Sheet Available</span>
                 <p class="font-body-sm text-body-sm text-outline">Certified homologation data, curb weights, gear ratios, and chassis schematics.</p>
               </div>
             </div>
             <div class="flex items-center gap-space-sm">
-              <a href="#test-ride" class="px-space-md py-2.5 rounded-full bg-primary text-on-primary font-label-caps text-label-caps uppercase tracking-wider hover:bg-primary-fixed-dim transition-colors inline-flex items-center gap-1.5 shadow-md">
-                <span class="material-symbols-outlined text-[16px]">two_wheeler</span>
-                <span>Experience The Machine</span>
+              <a href="#test-ride" class="btn-experience-ride px-6 py-3 text-xs shadow-xl" id="specs-experience-btn">
+                <span class="material-symbols-outlined text-[18px] bike-icon">two_wheeler</span>
+                <span>Experience The Ride</span>
+                <span class="material-symbols-outlined text-[16px] arrow-icon">arrow_forward</span>
               </a>
             </div>
           </div>
@@ -401,12 +851,52 @@
       </section>
 
       <!-- ====================================================================
+           INFINITE LOOP TICKER RIBBON 3: ROYAL ENFIELD CREED & HERITAGE
+           ==================================================================== -->
+      <div class="scroll-reveal w-full bg-gradient-to-r from-surface-container-lowest via-surface-container to-surface-container-lowest border-y border-primary/20 py-3.5 relative overflow-hidden z-20 shadow-lg">
+        <div class="marquee-container">
+          <div class="marquee-content flex items-center gap-10 text-on-surface font-label-caps text-label-caps uppercase tracking-[0.25em] text-xs">
+            <span class="flex items-center gap-2 text-primary font-bold"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> MADE LIKE A GUN</span>
+            <span class="text-primary/40 font-serif">✦</span>
+            <span class="text-on-surface hover:text-primary transition-colors">GOES LIKE A BULLET</span>
+            <span class="text-primary/40 font-serif">✦</span>
+            <span class="text-secondary font-bold">1932 UNBROKEN LINEAGE</span>
+            <span class="text-primary/40 font-serif">✦</span>
+            <span class="text-primary font-bold">LEGENDARY SINGLE-CYLINDER THUMP</span>
+            <span class="text-primary/40 font-serif">✦</span>
+            <span class="text-on-surface-variant">HAND-PINSTRIPED MADRAS CRAFT</span>
+            <span class="text-primary/40 font-serif">✦</span>
+            <span class="text-primary font-bold">BOSCH DUAL-CHANNEL ABS</span>
+            <span class="text-primary/40 font-serif">✦</span>
+            <span class="text-on-surface">BUILT TO OUTLAST THE CENTURY</span>
+            <span class="text-primary/40 font-serif">✦</span>
+          </div>
+          <div class="marquee-content flex items-center gap-10 text-on-surface font-label-caps text-label-caps uppercase tracking-[0.25em] text-xs" aria-hidden="true">
+            <span class="flex items-center gap-2 text-primary font-bold"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> MADE LIKE A GUN</span>
+            <span class="text-primary/40 font-serif">✦</span>
+            <span class="text-on-surface hover:text-primary transition-colors">GOES LIKE A BULLET</span>
+            <span class="text-primary/40 font-serif">✦</span>
+            <span class="text-secondary font-bold">1932 UNBROKEN LINEAGE</span>
+            <span class="text-primary/40 font-serif">✦</span>
+            <span class="text-primary font-bold">LEGENDARY SINGLE-CYLINDER THUMP</span>
+            <span class="text-primary/40 font-serif">✦</span>
+            <span class="text-on-surface-variant">HAND-PINSTRIPED MADRAS CRAFT</span>
+            <span class="text-primary/40 font-serif">✦</span>
+            <span class="text-primary font-bold">BOSCH DUAL-CHANNEL ABS</span>
+            <span class="text-primary/40 font-serif">✦</span>
+            <span class="text-on-surface">BUILT TO OUTLAST THE CENTURY</span>
+            <span class="text-primary/40 font-serif">✦</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====================================================================
            4. COLORWAYS & CUSTOMIZER INTERACTIVE PREVIEW
            ==================================================================== -->
       <section class="w-full bg-surface py-space-xl" id="customizer">
         <div class="max-w-[1440px] mx-auto px-gutter">
           <!-- Section Header -->
-          <div class="flex flex-col md:flex-row md:items-end justify-between mb-space-lg gap-space-md">
+          <div class="scroll-reveal flex flex-col md:flex-row md:items-end justify-between mb-space-lg gap-space-md">
             <div>
               <span class="font-label-caps text-label-caps uppercase text-primary tracking-[0.24em]">The Living Canvas</span>
               <h2 class="font-headline-lg text-headline-md md:text-headline-lg text-on-surface mt-1">
@@ -420,27 +910,33 @@
           </div>
 
           <!-- Customizer Showcase Box -->
-          <div class="bg-surface-container-low rounded-2xl p-space-md md:p-space-lg shadow-2xl relative overflow-hidden border border-white/5">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-center">
-              <!-- Main Color Showcase Image -->
-              <div class="lg:col-span-8 flex flex-col items-center justify-center relative min-h-[380px]">
-                <img alt="Royal Enfield Bullet 350 Standard Maroon" class="w-full h-auto max-h-[460px] object-contain rounded-xl drop-shadow-[0_20px_40px_rgba(0,0,0,0.85)] transition-all duration-500" id="customizer-bike-img" src="images/bullet-standard-maroon.jpg"/>
+          <div class="scroll-reveal card-interactive bg-surface-container-low rounded-2xl p-space-md md:p-space-lg shadow-2xl relative overflow-hidden border border-white/5" data-reveal-delay="1">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-center relative z-10">
+              <!-- Main Color Showcase Image & Dynamic Ambient Lighting Halo -->
+              <div class="scroll-reveal lg:col-span-8 flex flex-col items-center justify-center relative min-h-[400px]">
+                <!-- Dynamic Ambient Floor Spotlight Halo -->
+                <div id="palette-ambient-glow" class="absolute w-[460px] h-[260px] rounded-full blur-[90px] opacity-40 transition-all duration-700 pointer-events-none" style="background-color: rgba(120, 30, 40, 0.35);"></div>
+
+                <img alt="Royal Enfield Bullet 350 Standard Maroon" class="w-full h-auto max-h-[460px] object-contain rounded-xl drop-shadow-[0_24px_48px_rgba(0,0,0,0.95)] transition-all duration-500 relative z-10" id="customizer-bike-img" src="images/bullet-standard-maroon.jpg"/>
                 
-                <div class="absolute top-2 left-2 px-space-sm py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md shadow-sm flex items-center gap-2 border border-white/5">
-                  <span class="material-symbols-outlined text-[15px] text-primary">verified</span>
-                  <span class="font-label-caps text-label-caps uppercase text-on-surface tracking-wider" id="badge-trim-label">Dual-Channel ABS Spoke Wheels</span>
+                <div class="absolute top-3 left-3 px-space-sm py-1.5 rounded-full bg-surface-container-lowest/85 backdrop-blur-md shadow-lg flex items-center gap-2 border border-primary/20 animate-float z-20">
+                  <span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+                  <span class="font-label-caps text-label-caps uppercase text-on-surface tracking-wider font-semibold" id="badge-trim-label">Dual-Channel ABS Spoke Wheels</span>
                 </div>
               </div>
 
               <!-- Color Selector & Configuration Controls Rail -->
-              <div class="lg:col-span-4 flex flex-col justify-between bg-surface-container p-space-md rounded-xl shadow-lg border border-white/5">
+              <div class="lg:col-span-4 flex flex-col justify-between bg-surface-container p-space-md rounded-xl shadow-lg border border-white/5 relative z-10">
                 <div>
-                  <span class="font-label-caps text-label-caps uppercase text-primary tracking-widest">Heritage Editions</span>
-                  <h3 class="font-title-lg text-title-lg text-on-surface mt-1 mb-space-md">Factory Finishes</h3>
+                  <div class="flex items-center justify-between mb-1">
+                    <span class="font-label-caps text-label-caps uppercase text-primary tracking-widest">Heritage Editions</span>
+                    <span class="text-[11px] text-primary/80 font-mono tracking-wider">TAP TO PREVIEW</span>
+                  </div>
+                  <h3 class="font-title-lg text-title-lg text-on-surface mb-space-md">Factory Finishes</h3>
 
                   <div class="flex flex-col gap-space-sm" id="variant-selector-group">
                     <!-- Option 1: Black Gold -->
-                    <button class="variant-btn w-full p-space-sm rounded-lg bg-surface-container text-left flex items-center justify-between shadow-sm transition-all hover:bg-surface-container-high border border-white/5" data-variant="black-gold" onclick="selectVariant('black-gold', 'Black Gold Edition', '24k-Inspired Gold Madras Lines on Satin Obsidian Black with premium 3D copper badging.', '$4,999', 'Premium 3D Copper Tank Badging')">
+                    <button class="variant-btn scroll-reveal card-interactive w-full p-space-sm rounded-lg bg-surface-container text-left flex items-center justify-between shadow-sm transition-all hover:bg-surface-container-high border border-white/5 cursor-pointer" data-variant="black-gold" data-reveal-delay="1" onclick="selectVariant('black-gold', 'Black Gold Edition', '24k-Inspired Gold Madras Lines on Satin Obsidian Black with premium 3D copper badging.', '$4,999', 'Premium 3D Copper Tank Badging')">
                       <div class="flex items-center gap-space-sm">
                         <span class="w-6 h-6 rounded-full bg-surface-container-lowest shadow-inner ring-2 ring-primary"></span>
                         <div>
@@ -452,7 +948,7 @@
                     </button>
 
                     <!-- Option 2: Military Red -->
-                    <button class="variant-btn w-full p-space-sm rounded-lg bg-surface-container text-left flex items-center justify-between shadow-sm transition-all hover:bg-surface-container-high border border-white/5" data-variant="military-red" onclick="selectVariant('military-red', 'Military Red', 'Post-War Service Vermilion Red with Chrome Tank Medallions.', '$4,749', 'Chrome Single-Channel ABS Trim')">
+                    <button class="variant-btn scroll-reveal card-interactive w-full p-space-sm rounded-lg bg-surface-container text-left flex items-center justify-between shadow-sm transition-all hover:bg-surface-container-high border border-white/5 cursor-pointer" data-variant="military-red" data-reveal-delay="2" onclick="selectVariant('military-red', 'Military Red', 'Post-War Service Vermilion Red with Chrome Tank Medallions.', '$4,749', 'Chrome Single-Channel ABS Trim')">
                       <div class="flex items-center gap-space-sm">
                         <span class="w-6 h-6 rounded-full bg-[#801818] shadow-inner"></span>
                         <div>
@@ -464,7 +960,7 @@
                     </button>
 
                     <!-- Option 3: Forest Green -->
-                    <button class="variant-btn w-full p-space-sm rounded-lg bg-surface-container text-left flex items-center justify-between shadow-sm transition-all hover:bg-surface-container-high border border-white/5" data-variant="forest-green" onclick="selectVariant('forest-green', 'Forest Green Heritage', 'Deep British Racing Green with Double Gold Coachlines.', '$4,849', 'Polished Chrome Engine Cases')">
+                    <button class="variant-btn scroll-reveal card-interactive w-full p-space-sm rounded-lg bg-surface-container text-left flex items-center justify-between shadow-sm transition-all hover:bg-surface-container-high border border-white/5 cursor-pointer" data-variant="forest-green" data-reveal-delay="3" onclick="selectVariant('forest-green', 'Forest Green Heritage', 'Deep British Racing Green with Double Gold Coachlines.', '$4,849', 'Polished Chrome Engine Cases')">
                       <div class="flex items-center gap-space-sm">
                         <span class="w-6 h-6 rounded-full bg-[#1b382b] shadow-inner"></span>
                         <div>
@@ -476,7 +972,7 @@
                     </button>
 
                     <!-- Option 4: Standard Maroon -->
-                    <button class="variant-btn w-full p-space-sm rounded-lg bg-surface-container-high text-left flex items-center justify-between shadow-sm transition-all hover:bg-surface-container-highest border border-primary/40" data-variant="standard-maroon" onclick="selectVariant('standard-maroon', 'Standard Maroon', 'Deep Royal Maroon with Dual Hand-Drawn White Pinstripes.', '$4,799', 'Dual-Channel ABS Spoke Wheels')">
+                    <button class="variant-btn scroll-reveal card-interactive w-full p-space-sm rounded-lg bg-surface-container-high text-left flex items-center justify-between shadow-sm transition-all hover:bg-surface-container-highest border border-primary/40 cursor-pointer" data-variant="standard-maroon" data-reveal-delay="4" onclick="selectVariant('standard-maroon', 'Standard Maroon', 'Deep Royal Maroon with Dual Hand-Drawn White Pinstripes.', '$4,799', 'Dual-Channel ABS Spoke Wheels')">
                       <div class="flex items-center gap-space-sm">
                         <span class="w-6 h-6 rounded-full bg-[#4a151b] shadow-inner ring-2 ring-primary"></span>
                         <div>
@@ -489,13 +985,13 @@
                   </div>
 
                   <!-- Dynamic Specification Note -->
-                  <p class="font-body-sm text-body-sm text-on-surface-variant mt-space-md p-space-sm rounded-lg bg-surface-container-lowest/50" id="variant-description">
+                  <p class="font-body-sm text-body-sm text-on-surface-variant mt-space-md p-space-sm rounded-lg bg-surface-container-lowest/50 border border-white/5" id="variant-description">
                     Deep Royal Maroon with Dual Hand-Drawn White Pinstripes.
                   </p>
                 </div>
 
                 <!-- Price & Order Action -->
-                <div class="mt-space-md pt-space-sm border-t border-white/5">
+                <div class="scroll-reveal mt-space-md pt-space-sm border-t border-white/5" data-reveal-delay="2">
                   <div class="flex items-baseline justify-between mb-space-xs">
                     <span class="font-label-caps text-label-caps text-outline uppercase tracking-wider">Estimated MSRP</span>
                     <span class="font-headline-md text-headline-sm md:text-headline-md text-primary font-bold" id="variant-price">$4,799</span>
@@ -521,8 +1017,8 @@
           <div class="relative rounded-2xl overflow-hidden bg-gradient-to-br from-surface-container-high via-surface-container to-surface-container-low p-space-lg md:p-space-xl shadow-2xl border border-white/5">
             <div class="pointer-events-none absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-primary/10 blur-[80px]"></div>
             <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
-              <!-- Banner Copy -->
-              <div class="lg:col-span-5 flex flex-col">
+              <!-- Banner Copy & Interactive Thump Acoustic Engine -->
+              <div class="scroll-reveal lg:col-span-5 flex flex-col">
                 <div class="inline-flex items-center gap-space-xs mb-space-xs">
                   <span class="material-symbols-outlined text-primary text-[18px]">volume_up</span>
                   <span class="font-label-caps text-label-caps text-primary uppercase tracking-[0.2em]">Sensory Experience</span>
@@ -533,52 +1029,80 @@
                 <p class="font-body-lg text-body-md md:text-body-lg text-on-surface-variant mt-space-sm max-w-md">
                   No digital render can recreate the visceral vibration through the handlebars or the low-frequency rumble at idle. Book your private 45-minute highway and city test loop.
                 </p>
-                <div class="mt-space-lg flex items-center gap-space-lg">
-                  <div class="flex flex-col">
-                    <span class="font-headline-sm text-title-lg text-on-surface">900+</span>
-                    <span class="font-label-sm text-label-sm text-outline">Authorised Dealers</span>
+
+                <!-- Interactive 349cc Engine Thump Simulator Bar -->
+                <div id="thump-sound-panel" class="scroll-reveal card-interactive mt-space-md p-space-sm rounded-xl bg-surface-container-high/60 border border-primary/30 flex items-center justify-between gap-space-md shadow-inner transition-all" data-reveal-delay="1">
+                  <div class="flex items-center gap-space-sm">
+                    <button type="button" id="btn-engine-toggle" onclick="toggleEngineThump()" class="w-11 h-11 rounded-full bg-primary flex items-center justify-center text-background hover:scale-105 active:scale-95 transition-all shadow-lg hover:shadow-primary/30 cursor-pointer" title="Start/Stop 349cc Thump">
+                      <span class="material-symbols-outlined text-[24px]" id="engine-toggle-icon">play_arrow</span>
+                    </button>
+                    <div>
+                      <div class="flex items-center gap-2">
+                        <span class="font-title-md text-body-sm font-bold text-on-surface" id="thump-title">349cc Single-Cylinder Thump</span>
+                        <span class="px-2 py-0.5 rounded-full text-[9px] font-mono uppercase tracking-widest bg-primary/20 text-primary border border-primary/40" id="thump-badge">READY</span>
+                      </div>
+                      <span class="font-body-sm text-[12px] text-outline block" id="thump-subtext">Click play to simulate authentic idle acoustics</span>
+                    </div>
                   </div>
-                  <div class="w-px h-8 bg-surface-container-highest"></div>
-                  <div class="flex flex-col">
-                    <span class="font-headline-sm text-title-lg text-on-surface">45 Min</span>
-                    <span class="font-label-sm text-label-sm text-outline">Extended Ride Duration</span>
+
+                  <!-- Live Equalizer Soundwave Bars -->
+                  <div class="flex items-end gap-1 h-7 px-2" id="equalizer-container">
+                    <div class="soundwave-bar w-1 bg-primary/40 rounded-full h-2"></div>
+                    <div class="soundwave-bar w-1 bg-primary/40 rounded-full h-4"></div>
+                    <div class="soundwave-bar w-1 bg-primary rounded-full h-6"></div>
+                    <div class="soundwave-bar w-1 bg-primary/40 rounded-full h-3"></div>
+                    <div class="soundwave-bar w-1 bg-primary/40 rounded-full h-2"></div>
                   </div>
-                  <div class="w-px h-8 bg-surface-container-highest"></div>
-                  <div class="flex flex-col">
-                    <span class="font-headline-sm text-title-lg text-primary">0 Zero</span>
-                    <span class="font-label-sm text-label-sm text-outline">Deposit Required</span>
+                </div>
+
+                <!-- Three Stat Cards with Interactive Spotlight -->
+                <div class="mt-space-lg grid grid-cols-3 gap-space-xs sm:gap-space-sm">
+                  <div class="scroll-reveal card-interactive bg-surface-container/60 p-space-sm rounded-xl border border-white/5 flex flex-col justify-center" data-reveal-delay="1">
+                    <span class="font-headline-sm text-title-lg text-on-surface font-bold">900+</span>
+                    <span class="font-label-sm text-[11px] text-outline">Authorised Dealers</span>
+                  </div>
+                  <div class="scroll-reveal card-interactive bg-surface-container/60 p-space-sm rounded-xl border border-white/5 flex flex-col justify-center" data-reveal-delay="2">
+                    <span class="font-headline-sm text-title-lg text-on-surface font-bold">45 Min</span>
+                    <span class="font-label-sm text-[11px] text-outline">Extended Ride</span>
+                  </div>
+                  <div class="scroll-reveal card-interactive bg-surface-container/60 p-space-sm rounded-xl border border-primary/20 flex flex-col justify-center" data-reveal-delay="3">
+                    <span class="font-headline-sm text-title-lg text-primary font-bold">0 Zero</span>
+                    <span class="font-label-sm text-[11px] text-outline">Deposit Required</span>
                   </div>
                 </div>
               </div>
 
               <!-- Quick Test-Ride Booking Form Card -->
-              <div class="lg:col-span-7 bg-surface-container-lowest/80 backdrop-blur-xl p-space-md md:p-space-lg rounded-xl shadow-xl border border-white/5">
-                <span class="font-label-caps text-label-caps uppercase text-primary tracking-widest block mb-space-sm">Schedule Test Ride</span>
+              <div class="scroll-reveal card-interactive lg:col-span-7 bg-surface-container-lowest/85 backdrop-blur-xl p-space-md md:p-space-lg rounded-2xl shadow-2xl border border-white/10" data-reveal-delay="2">
+                <div class="flex items-center justify-between mb-space-sm">
+                  <span class="font-label-caps text-label-caps uppercase text-primary tracking-widest block">Schedule Test Ride</span>
+                  <span class="text-[11px] text-outline font-mono">PRIORITY ACCESS</span>
+                </div>
                 <form class="grid grid-cols-1 sm:grid-cols-2 gap-space-md" id="booking-form" onsubmit="event.preventDefault(); handleBookingSubmit();">
                   <!-- Name Input -->
                   <div class="flex flex-col gap-1">
                     <label class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant" for="rider-name">Full Name</label>
-                    <input class="w-full px-space-sm py-2.5 rounded-lg bg-surface-container text-on-surface font-body-md text-body-md placeholder-outline focus:outline-none focus:bg-surface-container-high transition-colors border border-white/5" id="rider-name" placeholder="e.g. Alistair Campbell" required type="text"/>
+                    <input class="w-full px-space-sm py-2.5 rounded-lg bg-surface-container text-on-surface font-body-md text-body-md placeholder-outline focus:outline-none focus:bg-surface-container-high focus:border-primary/50 transition-all border border-white/5" id="rider-name" placeholder="e.g. Alistair Campbell" required type="text"/>
                   </div>
                   <!-- Phone/Mobile Input -->
                   <div class="flex flex-col gap-1">
                     <label class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant" for="rider-phone">Phone Number</label>
-                    <input class="w-full px-space-sm py-2.5 rounded-lg bg-surface-container text-on-surface font-body-md text-body-md placeholder-outline focus:outline-none focus:bg-surface-container-high transition-colors border border-white/5" id="rider-phone" placeholder="+1 (555) 019-2834" required type="tel"/>
+                    <input class="w-full px-space-sm py-2.5 rounded-lg bg-surface-container text-on-surface font-body-md text-body-md placeholder-outline focus:outline-none focus:bg-surface-container-high focus:border-primary/50 transition-all border border-white/5" id="rider-phone" placeholder="+1 (555) 019-2834" required type="tel"/>
                   </div>
                   <!-- Postal/ZIP Code Input -->
                   <div class="flex flex-col gap-1">
                     <label class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant" for="rider-zip">Postal / Zip Code</label>
-                    <input class="w-full px-space-sm py-2.5 rounded-lg bg-surface-container text-on-surface font-body-md text-body-md placeholder-outline focus:outline-none focus:bg-surface-container-high transition-colors border border-white/5" id="rider-zip" placeholder="e.g. 90210 or SW1A 1AA" required type="text"/>
+                    <input class="w-full px-space-sm py-2.5 rounded-lg bg-surface-container text-on-surface font-body-md text-body-md placeholder-outline focus:outline-none focus:bg-surface-container-high focus:border-primary/50 transition-all border border-white/5" id="rider-zip" placeholder="e.g. 90210 or SW1A 1AA" required type="text"/>
                   </div>
                   <!-- Preferred Date -->
                   <div class="flex flex-col gap-1">
                     <label class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant" for="rider-date">Preferred Date</label>
-                    <input class="w-full px-space-sm py-2.5 rounded-lg bg-surface-container text-on-surface font-body-md text-body-md focus:outline-none focus:bg-surface-container-high transition-colors border border-white/5" id="rider-date" required type="date"/>
+                    <input class="w-full px-space-sm py-2.5 rounded-lg bg-surface-container text-on-surface font-body-md text-body-md focus:outline-none focus:bg-surface-container-high focus:border-primary/50 transition-all border border-white/5" id="rider-date" required type="date"/>
                   </div>
                   <!-- Model Edition Choice -->
                   <div class="sm:col-span-2 flex flex-col gap-1">
                     <label class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant" for="rider-model">Select Preferred Bullet Edition</label>
-                    <select class="w-full px-space-sm py-2.5 rounded-lg bg-surface-container text-on-surface font-body-md text-body-md focus:outline-none focus:bg-surface-container-high transition-colors border border-white/5" id="rider-model">
+                    <select class="w-full px-space-sm py-2.5 rounded-lg bg-surface-container text-on-surface font-body-md text-body-md focus:outline-none focus:bg-surface-container-high focus:border-primary/50 transition-all border border-white/5 cursor-pointer" id="rider-model">
                       <option value="standard-maroon" selected>Bullet 350 — Standard Maroon</option>
                       <option value="forest-green">Bullet 350 — Forest Green Heritage</option>
                       <option value="military-red">Bullet 350 — Military Red (Post-War Service)</option>
@@ -612,7 +1136,7 @@
        ==================================================================== -->
   <footer class="w-full bg-surface-container-lowest text-on-surface-variant border-t border-white/5">
     <div class="w-full px-gutter pt-space-xl pb-space-lg max-w-[1440px] mx-auto">
-      <div class="flex flex-col lg:flex-row items-start lg:items-end justify-between pb-space-lg mb-space-lg gap-space-md border-b border-white/5">
+      <div class="scroll-reveal flex flex-col lg:flex-row items-start lg:items-end justify-between pb-space-lg mb-space-lg gap-space-md border-b border-white/5">
         <div class="max-w-xl">
           <div class="font-label-caps text-label-caps uppercase tracking-[0.2em] text-primary mb-space-xs flex items-center gap-space-xs">
             <span class="material-symbols-outlined text-[16px]">military_tech</span>1901 • Redditch • Chennai
@@ -625,8 +1149,10 @@
           </p>
         </div>
         <div class="flex flex-wrap items-center gap-space-sm">
-          <a class="px-space-md py-space-xs rounded-full bg-primary text-on-primary font-label-caps text-label-caps uppercase tracking-wider hover:bg-primary-fixed-dim transition-colors" href="#test-ride">
-            Book a Test Ride
+          <a class="btn-experience-ride px-space-md py-2 text-[11px]" href="#test-ride">
+            <span class="material-symbols-outlined text-[16px] bike-icon">two_wheeler</span>
+            <span>Experience The Ride</span>
+            <span class="material-symbols-outlined text-[14px] arrow-icon">arrow_forward</span>
           </a>
           <a class="px-space-md py-space-xs rounded-full bg-surface-container text-on-surface font-label-caps text-label-caps uppercase tracking-wider hover:bg-surface-container-high transition-colors" href="#customizer">
             Configure Bullet
@@ -634,7 +1160,7 @@
         </div>
       </div>
 
-      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-space-lg py-space-lg">
+      <div class="scroll-reveal grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-space-lg py-space-lg">
         <div class="flex flex-col gap-space-sm">
           <span class="font-label-caps text-label-caps uppercase tracking-widest text-primary">Motorcycles</span>
           <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Bullet 350</a>
@@ -675,7 +1201,7 @@
         </div>
       </div>
 
-      <div class="pt-space-md flex flex-col md:flex-row items-center justify-between gap-space-sm font-label-sm text-label-sm text-outline border-t border-white/5">
+      <div class="scroll-reveal pt-space-md flex flex-col md:flex-row items-center justify-between gap-space-sm font-label-sm text-label-sm text-outline border-t border-white/5">
         <div class="flex items-center gap-space-sm">
           <span>© 2025 Royal Enfield. Pure Motorcycling Since 1901.</span>
         </div>
@@ -790,6 +1316,212 @@
           btn.classList.remove('bg-primary', 'text-on-primary');
         }
       }, 700);
+    }
+
+    /* ====================================================================
+       INTERACTIVE 349CC SINGLE-CYLINDER THUMP SYNTHESIZER (WEB AUDIO API)
+       Authentic zero-dependency procedural audio simulation of the J-Series idle
+       ==================================================================== */
+    let audioCtx = null;
+    let engineInterval = null;
+    let isEngineRunning = false;
+
+    function playSingleThumpPulse(ctx) {
+      if (!ctx || ctx.state === 'suspended') return;
+      const now = ctx.currentTime;
+
+      // 1. Primary Low-Frequency Exhaust Piston Thud (Sub-bass drop 95Hz -> 38Hz)
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(105, now);
+      osc.frequency.exponentialRampToValueAtTime(36, now + 0.11);
+
+      gain.gain.setValueAtTime(0.75, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+
+      // Lowpass filter for deep throat chamber resonance
+      const filter = ctx.createBiquadFilter();
+      filter.type = 'lowpass';
+      filter.frequency.setValueAtTime(180, now);
+
+      osc.connect(filter);
+      filter.connect(gain);
+      gain.connect(ctx.destination);
+
+      osc.start(now);
+      osc.stop(now + 0.13);
+
+      // 2. Secondary Mechanical Metallic Chamber Reverberation (180Hz -> 65Hz)
+      const osc2 = ctx.createOscillator();
+      const gain2 = ctx.createGain();
+      osc2.type = 'sine';
+      osc2.frequency.setValueAtTime(190, now + 0.015);
+      osc2.frequency.exponentialRampToValueAtTime(60, now + 0.09);
+
+      gain2.gain.setValueAtTime(0.28, now + 0.015);
+      gain2.gain.exponentialRampToValueAtTime(0.001, now + 0.10);
+
+      osc2.connect(gain2);
+      gain2.connect(ctx.destination);
+
+      osc2.start(now + 0.015);
+      osc2.stop(now + 0.11);
+    }
+
+    function toggleEngineThump() {
+      const toggleIcon = document.getElementById('engine-toggle-icon');
+      const cardIcon = document.getElementById('engine-card-icon');
+      const cardText = document.getElementById('engine-card-text');
+      const thumpBadge = document.getElementById('thump-badge');
+      const thumpSubtext = document.getElementById('thump-subtext');
+      const thumpPanel = document.getElementById('thump-sound-panel');
+      const equalizer = document.getElementById('equalizer-container');
+
+      if (!isEngineRunning) {
+        // Start Sound Engine
+        try {
+          const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+          if (!AudioContextClass) return;
+          if (!audioCtx) {
+            audioCtx = new AudioContextClass();
+          }
+          if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
+          }
+
+          isEngineRunning = true;
+
+          // Initial immediate pulse
+          playSingleThumpPulse(audioCtx);
+
+          // 4-stroke single cylinder at ~1,000 RPM idle = ~8.3 firing pulses/sec (~120ms interval)
+          engineInterval = setInterval(() => {
+            if (isEngineRunning && audioCtx) {
+              playSingleThumpPulse(audioCtx);
+            }
+          }, 125);
+
+          // Update UI Elements
+          if (toggleIcon) toggleIcon.textContent = 'pause';
+          if (cardIcon) cardIcon.textContent = 'volume_off';
+          if (cardText) cardText.textContent = 'Stop Thump';
+          if (thumpBadge) {
+            thumpBadge.textContent = '1,050 RPM';
+            thumpBadge.classList.remove('bg-primary/20', 'text-primary');
+            thumpBadge.classList.add('bg-emerald-500/20', 'text-emerald-400', 'border-emerald-500/40');
+          }
+          if (thumpSubtext) {
+            thumpSubtext.textContent = 'Signature J-Series cadence live • Visceral single-cylinder rumble';
+          }
+          if (thumpPanel) {
+            thumpPanel.classList.add('border-primary', 'shadow-[0_0_24px_rgba(242,202,80,0.35)]');
+          }
+          if (equalizer) {
+            const bars = equalizer.querySelectorAll('.soundwave-bar');
+            bars.forEach(b => {
+              b.classList.remove('bg-primary/40');
+              b.classList.add('bg-primary', 'shadow-[0_0_8px_#f2ca50]');
+            });
+          }
+        } catch (err) {
+          console.error('Audio engine start failed:', err);
+        }
+      } else {
+        // Stop Sound Engine
+        isEngineRunning = false;
+        if (engineInterval) {
+          clearInterval(engineInterval);
+          engineInterval = null;
+        }
+
+        // Update UI Elements
+        if (toggleIcon) toggleIcon.textContent = 'play_arrow';
+        if (cardIcon) cardIcon.textContent = 'volume_up';
+        if (cardText) cardText.textContent = 'Listen Thump';
+        if (thumpBadge) {
+          thumpBadge.textContent = 'STANDBY';
+          thumpBadge.classList.remove('bg-emerald-500/20', 'text-emerald-400', 'border-emerald-500/40');
+          thumpBadge.classList.add('bg-primary/20', 'text-primary');
+        }
+        if (thumpSubtext) {
+          thumpSubtext.textContent = 'Click play to simulate authentic idle acoustics';
+        }
+        if (thumpPanel) {
+          thumpPanel.classList.remove('border-primary', 'shadow-[0_0_24px_rgba(242,202,80,0.35)]');
+        }
+        if (equalizer) {
+          const bars = equalizer.querySelectorAll('.soundwave-bar');
+          bars.forEach((b, idx) => {
+            b.classList.add('bg-primary/40');
+            b.classList.remove('bg-primary', 'shadow-[0_0_8px_#f2ca50]');
+          });
+        }
+      }
+    }
+
+    /* ====================================================================
+       INTERACTIVE CARD SPOTLIGHT MOUSE TRACKING
+       Dynamic specular radial flashlight on all .card-interactive surfaces
+       ==================================================================== */
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.card-interactive');
+      cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          card.style.setProperty('--mouse-x', `${x}px`);
+          card.style.setProperty('--mouse-y', `${y}px`);
+        });
+      });
+    });
+
+    /* ====================================================================
+       SMOOTH SCROLL-TRIGGERED FADE-IN & RE-ANIMATION ENGINE (INTERSECTION OBSERVER)
+       - Gradually fades in elements with downward offset as they enter viewport
+       - Automatically resets when leaving viewport so they animate again on scroll back
+       - Staggered timing for cards, grids, and collections
+       - Optimized with CSS transitions for fluid 60fps/120fps performance
+       ==================================================================== */
+    function initScrollReveal() {
+      const revealElements = document.querySelectorAll('.scroll-reveal');
+      if (!revealElements.length) return;
+
+      // Honor user accessibility preference for reduced motion
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReducedMotion) {
+        revealElements.forEach(el => el.classList.add('is-revealed'));
+        return;
+      }
+
+      // Intersection Observer with bottom offset for natural reveal timing
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -40px 0px',
+        threshold: 0.08
+      };
+
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+          } else {
+            // Reset when leaving viewport so it re-animates when user scrolls back
+            entry.target.classList.remove('is-revealed');
+          }
+        });
+      }, observerOptions);
+
+      revealElements.forEach(el => {
+        revealObserver.observe(el);
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initScrollReveal);
+    } else {
+      initScrollReveal();
     }
   </script>
 
